@@ -1,0 +1,8 @@
+.ad{
+    background-color: red;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content:space-around
+}
