@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import homeBottomNav from '../../static/icon/homeBottomNav.png'
-import mineBottomNav from '../../static/icon/mineBottomNav.png'
+import homeBottomNav from './icon/homeBottomNav.png'
+import mineBottomNav from './icon/mineBottomNav.png'
 
 export default class BottomNav extends Component {
   BottomNavStateSwichTo1=()=>{
