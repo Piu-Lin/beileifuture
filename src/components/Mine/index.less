@@ -1,8 +1,91 @@
-.index{
-  color: red;
-  .top{
-    color: yellow;
-    font-size: large;
-  
+.index {
+  height: 100vh;
+  width: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+
+  .head {
+    width: 100%;
+    height: 28vh;
+    background-color: #20a2ff;
+
+    .headImg {
+      position: absolute;
+      left: 5vw;
+      top: 10vh;
+      display: flex;
+      align-items: center;
+
+      .imgHead {
+        width: 64px;
+        height: 64px;
+        border-radius: 99px;
+        border: 1px solid white;
+        margin-right: 6px;
+      }
+
+      div {
+        color: white;
+
+        img {
+          width: 14px;
+        }
+
+        div {
+          margin: 3px 0;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+
+          span {
+            margin: 0 3px;
+          }
+        }
+
+
+      }
+
+
+    }
+
+
   }
+
+  .MainFunction {
+    position: absolute;
+    align-self: center;
+    height: 400px;
+    width: 90%;
+    background-color: white;
+    top: 21vh;
+    border-radius: 3px;
+    padding: 5px;
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        width: 33%;
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          font-size: 16px;
+          color: #333;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+}
+
+li {
+  list-style: none;
 }
