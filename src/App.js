@@ -26,7 +26,7 @@ export default class App extends Component {
     return (
       <>
         <BottomNav BottomNavStateSwich={this.BottomNavStateSwich} />
-        {this.BottomNavState == 0 ? (<Home />) : (<Mine />)}
+        {this.state.BottomNavState === 0 ? (<Home />) : (<Mine />)}
       </>
     )
   }

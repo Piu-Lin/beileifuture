@@ -29,11 +29,11 @@ export default class BottomNav extends Component {
     }
     return (
       <div style={ssBottomNavBox}>
-        <div  style={ssBottomNavitem}>
+        <div onClick={()=>{this.BottomNavStateSwichTo0()}} style={ssBottomNavitem}>
           <img  src={ homeBottomNav } alt='主页' />
           <div>主页</div>
         </div>
-        <div style={ssBottomNavitem}>
+        <div onClick={()=>{this.BottomNavStateSwichTo1()}} style={ssBottomNavitem}>
           <img src={ mineBottomNav } alt='我的' />
           <div>我的</div>
         </div>

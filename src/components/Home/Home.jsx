@@ -5,7 +5,6 @@ export default class Home extends Component {
     return (
       <>
       <div>index</div>
-      {console.log("asdasd")}
       </>
     )
   }
