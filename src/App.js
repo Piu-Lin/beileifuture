@@ -12,7 +12,7 @@ import Home from "./components/Home/Home.jsx"
 import BottomNav from "./components/BottomNav/BottomNav.jsx"
 import Mine from "./components/Mine/Mine.jsx"
 
-import './App.css';
+import './App.less';
 import React, { Component } from 'react'
 
 export default class App extends Component {
