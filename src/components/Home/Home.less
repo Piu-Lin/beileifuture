@@ -13,9 +13,10 @@
         width: 80vw;
         left: 5vw;
         top: -3vh;
-        padding-top: 1vh;
+        padding-top: 2vh;
         padding-left: 5vw;
         padding-right: 5vw;
+        padding-bottom: 2vh;
         border-radius: 8px;
         #emergencyMessage{
             padding-left: 3vw;
@@ -26,6 +27,7 @@
             display: flex;
             align-items: center;
             background-color: #f3f5ff;
+            border-radius: 8px;
             #emergencyIcon{
                 position: relative;
                 height: 4vh;
@@ -35,15 +37,33 @@
                 position: relative;
                 height: 5vh;
                 overflow: hidden;
+                font-size: 0.9rem;
             }
         }
         .homeSubCardLine{
-            background-color: red;
             display: flex;
             justify-content: space-between;
             .homeSubCardItem{
+                margin-top: 1vh;
                 .homeSubCardBg{
+                    float: left;
                     width: 38vw;
+                }
+                .homeSubCardTitle{
+                    position: absolute;
+                    margin-top: 1.5vh;
+                    margin-left: 2vw;
+
+                    color: white;
+                    font-size: 1.2rem;
+                }
+                .homeSubCardContent{
+                    position: absolute;
+                    margin-top: 5vh;
+                    margin-left: 2vw;
+                    font-size: 0.9rem;
+
+                    color: white;
                 }
             }
         }
