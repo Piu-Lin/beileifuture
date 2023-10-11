@@ -44,7 +44,7 @@ export default class Home extends Component {
           <div className='homeSubCardLine'>
             <div className='homeSubCardItem'>
               <img className='homeSubCardBg' src={InformationBulletins} alt="InformationBulletins" />
-              <div className='homeSubCardTitle'>信息公告</div>
+              <div className='homeSubCardTitle'>三务公开</div>
               <div className='homeSubCardContent'>村务信息公开</div>
             </div>
             <div className='homeSubCardItem'>
@@ -99,6 +99,8 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className='HomeNavCard'>
         </div>
       </div>
       </>
