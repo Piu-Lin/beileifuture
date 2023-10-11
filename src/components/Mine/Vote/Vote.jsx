@@ -12,8 +12,11 @@ export default class Vote extends Component {
           <div className="back" onClick={()=>{this.BackTo0()}} >
             <img src={ backIcon} alt="返回" />
           </div>
+          <div className="title">
+              <span>投票</span>
+          </div>
         </div>
-      </div>
+      </div>  
     )
   }
 }

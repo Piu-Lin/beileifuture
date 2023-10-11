@@ -1,19 +1,57 @@
-/*
- * @Author: bigliweijie 1771662778@qq.com
- * @Date: 2023-10-09 11:56:21
- * @LastEditors: bigliweijie 1771662778@qq.com
- * @LastEditTime: 2023-10-09 11:56:46
- * @FilePath: \beileifuture\src\components\Mine\Mine\Mine.jsx
- * @Description: 
- * 
- * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
- */
 import React, { Component } from 'react'
+import backIcon from '../icon/back.png'
+import more from '../icon/more.png'
 
-export default class My extends Component {
+import './index.less'
+export default class My  extends Component {
+  BackTo0 = () => {
+    this.props.MineState(0)
+  }
+  state = {
+    
+  }
   render() {
     return (
-      <div>Mine</div>
+      <div className="index">
+        <div className="TopNav">
+          <div className="back" onClick={()=>{this.BackTo0()}} >
+            <img src={ backIcon} alt="返回" />
+          </div>
+          <div className="title">
+              <span>个人中心</span>
+          </div>
+        </div>
+        <div className="concent">
+          <li>
+            <span>名字</span>
+            <div>
+              <span>李炜杰</span>
+              <img src={more} alt="更多" />
+              </div>
+          </li>
+          <li>
+            <span>性别</span>
+            <div>
+              <span>男</span>
+              <img src={more} alt="更多" />
+              </div>
+          </li>
+          <li>
+            <span>电话号码</span>
+            <div>
+              <span>191577777777</span>
+              <img src={more} alt="更多" />
+              </div>
+          </li>
+          <li>
+            <span>账号</span>
+            <div>
+              <span>100011110</span>
+              <img src={more} alt="更多" />
+              </div>
+          </li>
+        </div>
+      </div>  
     )
   }
 }

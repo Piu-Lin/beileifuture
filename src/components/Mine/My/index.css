@@ -1,0 +1,48 @@
+.index {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.index .TopNav {
+  height: 50px;
+  width: 100%;
+  background-color: white ;
+  display: flex;
+  align-items: center;
+}
+.index .TopNav .back {
+  position: absolute;
+  margin: 0 5px 0;
+}
+.index .TopNav .back img {
+  width: 20px;
+}
+.index .TopNav .title {
+  font-size: 18px;
+  margin: auto;
+}
+.index .concent {
+  width: 90%;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: white;
+}
+.index .concent li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 0;
+}
+.index .concent li div {
+  display: flex;
+  align-items: center;
+}
+.index .concent li div img {
+  width: 24px;
+}
