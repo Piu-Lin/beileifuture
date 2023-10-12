@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import backIcon from '../icon/back.png'
+import backIcon from '../../icon/back.png'
+
 import './index.less'
 export default class Points  extends Component {
   BackTo0 = () => {

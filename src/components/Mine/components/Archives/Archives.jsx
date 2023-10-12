@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import backIcon from '../icon/back.png'
+import backIcon from '../../icon/back.png'
 import './index.less'
-import heath from '../icon/健康.png'
+import heath from '../../icon/健康.png'
 export default class Archives extends Component {
   BackTo0 = () => {
     this.props.MineState(0)
