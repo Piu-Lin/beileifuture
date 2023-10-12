@@ -9,7 +9,7 @@
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
  */
 import React, { Component } from 'react'
-import backIcon from '../icon/back.png'
+import backIcon from '../../icon/back.png'
 import './index.less'
 import {
   Form,
