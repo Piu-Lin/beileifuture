@@ -101,6 +101,21 @@ export default class Home extends Component {
           </div>
         </div>
         <div className='HomeNavCard'>
+          <div className='HomeNavCardMainTitle'>乡村资讯</div>
+          <div className='HomeZiXunItemBox'>
+            <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />
+            <div className='HomeZiXunItemContentBox'>
+              <div className='HomeZiXunItemContentTitle'>资讯标题</div>
+              <div className='HomeZiXunItemContentTime'>2023-10-11</div>
+            </div>
+          </div>
+          <div className='HomeZiXunItemBox'>
+            <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />
+            <div className='HomeZiXunItemContentBox'>
+              <div className='HomeZiXunItemContentTitle'>资讯标题</div>
+              <div className='HomeZiXunItemContentTime'>2023-10-11</div>
+            </div>
+          </div>
         </div>
       </div>
       </>
