@@ -14,15 +14,6 @@ import vote from './icon/vote.png'
 import survey from './icon/survey.png'
 import points from './icon/points.png'
 
-
-
-
-
-
-
-
-
-
 export default class Mine extends Component {
   state = {
     MineState: 0,
