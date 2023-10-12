@@ -1,6 +1,7 @@
-import React from 'react'
 import './index.less'
-export const QLConvention = () => {
+import React, { Component } from 'react'
+export default class QLConvention extends Component {
+  render() {
   return (
     <div className="villagersContainer">
       <ul className="villagersContainer__textContainer">
@@ -308,5 +309,4 @@ export const QLConvention = () => {
       </ul>
     </div>
   )
-}
-a
+}}

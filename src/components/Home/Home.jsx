@@ -17,7 +17,7 @@ import Questionnaires from './icon/Questionnaires.png'
 import RABList from './icon/RABList.png'
 import emergencyIcon from "./icon/emergencyIcon.png"
 import OnlineVote from './icon/OnlineVote.png'
-import ConflictMediation from './icon/ConflictMediation.png'
+import ConflictMediationimg from './icon/ConflictMediation.png'
 import CorruptionConvention from './icon/CorruptionConvention.png'
 import CleanAndOpen from './icon/CleanAndOpen.png'
 import Survey from "../Mine/components/Survey/Survey"
@@ -25,7 +25,7 @@ import Notification from './components/Notification/Notification'
 import ThreeAffairsOpen from './components/ThreeAffairsOpen/ThreeAffairsOpen'
 import Deliberative from './components/Deliberative/Deliberative'
 import RedAndBlack from './components/RedAndBlack/RedAndBlack'
-import ConflictMediationFunc from './components/ConflictMediation/ConflictMediation'
+import {ConflictMediation} from './components/ConflictMediation/ConflictMediation'
 import QLConvention from './components/QLConvention/QLConvention'
 import QLOpen from './components/QLOpen/QLOpen'
 
@@ -103,7 +103,7 @@ export default class Home extends Component {
               </div>
             </div>
             <div style={{backgroundColor:'#f1f8ff'}} className='homeSubCardItem homeSubCardItemReplenish'>
-              <img className='homeSubCardBgI' src={ConflictMediation} alt="ConflictMediation" />
+              <img className='homeSubCardBgI' src={ConflictMediationimg} alt="ConflictMediationimg" />
               <div>
                 <div className='homeSubCardCaption'>矛盾调解</div>
                 <div className='homeSubCardPart'>安居乐业</div>
@@ -111,7 +111,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='homeSubCardLine'>
-            <div style={{backgroundColor:'#f1fdff'}} className='homeSubCardItem homeSubCardItemReplenish'>
+            <div onClick={()=>{this.SetHomeState(8)}} style={{backgroundColor:'#f1fdff'}} className='homeSubCardItem homeSubCardItemReplenish'>
               <img className='homeSubCardBgI' src={CorruptionConvention} alt="CorruptionConvention" />
               <div>
                 <div className='homeSubCardCaption'>清廉公约</div>
@@ -159,7 +159,7 @@ export default class Home extends Component {
       case 6: // 线上投票
         return (<RedAndBlack/>);
       case 7: // 矛盾调解
-        return (<ConflictMediationFunc/>);
+        return (<ConflictMediation/>);
       case 8: // 清廉公约
         return (<QLConvention/>);
       case 9: // 清廉公开
