@@ -2,7 +2,7 @@
  * @Author: bigliweijie 1771662778@qq.com
  * @Date: 2023-10-09 09:11:15
  * @LastEditors: bigliweijie 1771662778@qq.com
- * @LastEditTime: 2023-10-12 17:39:00
+ * @LastEditTime: 2023-10-12 17:41:22
  * @FilePath: \beileifuture\src\components\Home\Home.jsx
  * @Description: 
  * 
@@ -20,7 +20,7 @@ import OnlineVote from './icon/OnlineVote.png'
 import ConflictMediation from './icon/ConflictMediation.png'
 import CorruptionConvention from './icon/CorruptionConvention.png'
 import CleanAndOpen from './icon/CleanAndOpen.png'
-import Survey from "../Mine/Survey/Survey"
+import Survey from "../Mine/components/Survey/Survey"
 import Notification from './components/Notification/Notification'
 import ThreeAffairsOpen from './components/ThreeAffairsOpen/ThreeAffairsOpen'
 import Deliberative from './components/Deliberative/Deliberative'
