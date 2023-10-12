@@ -14,6 +14,13 @@ import Survey from "../Mine/Survey/Survey"
 import Notification from './components/Notification/Notification'
 import ThreeAffairsOpen from './components/ThreeAffairsOpen/ThreeAffairsOpen'
 import Deliberative from './components/Deliberative/Deliberative'
+import RedAndBlack from './components/RedAndBlack/RedAndBlack'
+import ConflictMediationFunc from './components/ConflictMediation/ConflictMediation'
+import QLConvention from './components/QLConvention/QLConvention'
+import QLOpen from './components/QLOpen/QLOpen'
+
+
+
 
 export default class Home extends Component {
   state = {
@@ -134,13 +141,19 @@ export default class Home extends Component {
       case 2: // 三务公开
         return (<ThreeAffairsOpen/>);
       case 3: // 议事管理
+        return (<Deliberative/>);
       case 4: // 问卷调查
         return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
       case 5: // 红黑榜
+        return (<RedAndBlack/>);
       case 6: // 线上投票
+        return (<RedAndBlack/>);
       case 7: // 矛盾调解
+        return (<ConflictMediationFunc/>);
       case 8: // 清廉公约
+        return (<QLConvention/>);
       case 9: // 清廉公开
+        return (<QLOpen/>);
       default:
         return (<></>)
     }
