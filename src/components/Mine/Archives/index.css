@@ -21,15 +21,12 @@
 }
 .index .Archives {
   width: 90%;
-  height: 15vh;
-  font-size: 18px;
-  color: #333;
-  padding: 8px;
-  margin-top: 10px;
-  border-radius: 8px;
+  padding: 10px;
   background-color: white;
+  border-radius: 8px;
+  margin-top: 10px;
 }
-.index .Archives .Charts {
-  width: 80vw;
-  height: 100px;
+.index .Archives img {
+  width: 100%;
+  border-radius: 8px;
 }

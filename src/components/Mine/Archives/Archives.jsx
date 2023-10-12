@@ -1,35 +1,13 @@
 import React, { Component } from 'react'
 import backIcon from '../icon/back.png'
 import './index.less'
-import * as eCharts from "echarts";
+import heath from '../icon/健康.png'
 export default class Archives extends Component {
   BackTo0 = () => {
     this.props.MineState(0)
   }
-  eChartsRef = React.createRef();
-  componentDidMount() {
-    const myChart = eCharts.init(this.eChartsRef.current);
 
-    let option = {
-      series: [
-        {
-          name: 'Pressure',
-          type: 'gauge',
-          detail: {
-            formatter: '{value}'
-          },
-          data: [
-            {
-              value: 50,
-              name: 'SCORE'
-            }
-          ]
-        }
-      ]
-    };
 
-    myChart.setOption(option);
-  }
 
   render() {
     return (
@@ -44,9 +22,7 @@ export default class Archives extends Component {
 
         </div>
         <div className="Archives">
-          <div className="Charts" ref={this.eChartsRef}>
-
-          </div>
+            <img src={heath} alt="" />
         </div>
       </div>
     )
