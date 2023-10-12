@@ -1,0 +1,36 @@
+.index {
+  background-color: #f9f9f9;
+}
+.index .TopNav {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.index .TopNav .back {
+  position: absolute;
+  margin: 0 5px 0;
+}
+.index .TopNav .back img {
+  width: 20px;
+}
+.index .TopNav .title {
+  font-size: 18px;
+  margin: auto;
+}
+.index .switchTag {
+  width: 100%;
+  font-size: 16px;
+  display: flex;
+  background: white;
+  justify-content: space-around;
+  padding: 0 0 5px 0;
+}
+.index .switchTag span {
+  padding: 0 0 5px 0;
+}
+.index .tagSelected {
+  color: red;
+  border-bottom: 1px solid red;
+}

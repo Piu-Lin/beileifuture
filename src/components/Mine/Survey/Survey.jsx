@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import backIcon from '../icon/back.png'
 import './index.less'
-export default class Survey  extends Component {
+export default class Survey extends Component {
+  state = {
+    isSelect:false
+  }
   BackTo0 = () => {
     this.props.MineState(0)
+  }
+  selected = () => {
+    console.log(this.isSelect)
   }
   render() {
     return (
@@ -15,6 +21,10 @@ export default class Survey  extends Component {
           <div className="title">
               <span>问卷</span>
           </div>
+        </div>
+        <div className="switchTag">
+          <div><span onClick={()=>this.selected()} className={this.isSelect? 'tagSelected': ''}>未填问卷</span></div>
+          <div><span  onClick={()=>this.selected()} className={this.isSelect? '': 'tagSelected'}>历史问卷</span></div>
         </div>
       </div>  
     )
