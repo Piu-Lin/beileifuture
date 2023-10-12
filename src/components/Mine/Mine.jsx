@@ -55,9 +55,9 @@ export default class Mine extends Component {
         return (<My MineState={this.MineState} />)
       case 3:
         return (<Points MineState={this.MineState} />)
-      case 4:
+      case 4: 
         return (<Vote MineState={this.MineState} />)
-      case 5:
+      case 5: // 问卷调查
         return (<Survey MineState={this.MineState} />)
 
 

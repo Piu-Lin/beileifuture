@@ -10,6 +10,8 @@ import OnlineVote from './icon/OnlineVote.png'
 import ConflictMediation from './icon/ConflictMediation.png'
 import CorruptionConvention from './icon/CorruptionConvention.png'
 import CleanAndOpen from './icon/CleanAndOpen.png'
+import Survey from "../Mine/Survey/Survey"
+
 export default class Home extends Component {
   state = {
     /** 乡村资讯 */
@@ -29,13 +31,18 @@ export default class Home extends Component {
     emergency:{
       pushTime:"2023年10月9日",
       content:"紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️",
-    }
+    },
+    HomeState: 0,
   }
-  render() {
-    return (
-      <>
-      <div className='HomeNavBox'>
-        <img id="hero" src={Hero} alt="hero" />
+  SetHomeState = (tobe) => {
+    this.setState({ HomeState: tobe })
+  }
+  renderContent(){
+    switch (this.state.HomeState) {
+      case 0: //首页导航
+        return (
+          <div className='HomeNavBox'>
+          <img id="hero" src={Hero} alt="hero" />
         <div  style={{top:'-5vh'}} className='HomeNavCard'>
           <div id="emergencyMessage">
             <img id='emergencyIcon' src={emergencyIcon} alt="emergencyIcon" />
@@ -54,12 +61,12 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='homeSubCardLine'>
-            <div className='homeSubCardItem'>
+            <div onClick={()=>{this.SetHomeState(4)}} className='homeSubCardItem'>
                 <img className='homeSubCardBg' src={Questionnaires} alt="Questionnaires" />
                 <div className='homeSubCardTitle'>问卷调查</div>
                 <div className='homeSubCardContent'>村务事项调研</div>
               </div>
-              <div className='homeSubCardItem'>
+              <div  className='homeSubCardItem'>
                 <img className='homeSubCardBg' src={RABList} alt="RABList" />
                 <div className='homeSubCardTitle'>红黑榜</div>
                 <div className='homeSubCardContent'>村民行为奖惩</div>
@@ -117,7 +124,31 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
-      </div>
+          </div>
+      )
+      case 1:
+          break;
+      case 2:
+        break;
+      case 3:
+      case 4: // 问卷调查
+        return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
+        
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      default:
+        return (<></>)
+    }
+
+
+  }
+  render() {
+    return (
+      <>
+       {this.renderContent()}
       </>
     )
   }

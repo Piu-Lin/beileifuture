@@ -121,26 +121,33 @@ export default class Survey extends Component {
   BackTo0 = () => {
     this.props.MineState(0)
   }
+  backtors0=()=>{
+    this.props.SetHomeState(0)
+  }
   selected = () => {
     this.setState({
       isSelect: !this.state.isSelect
     })
-    console.log(this.state)
   }
   switchSurvey = (value) => {
     this.setState({
       isSurveyContext: !this.state.isSurveyContext,
       wenjuanJson: value
     })
-    console.log(this.state)
   }
   render() {
     return (
       <div className="index">
         <div className="TopNav">
-          <div className="back" onClick={() => { this.state.isSurveyContext ? this.BackTo0() : this.switchSurvey() }} >
+          {this.props.comefrom==="1" ?(
+           <div  className="back" onClick={() => { this.state.isSurveyContext ? this.backtors0() : this.switchSurvey() }} >
+            <img src={backIcon} alt="返回" />
+            </div>
+          ):(
+            <div  className="back" onClick={() => { this.state.isSurveyContext ? this.BackTo0() : this.switchSurvey() }} >
             <img src={backIcon} alt="返回" />
           </div>
+          )}
           <div className="title">
             <span>问卷</span>
           </div>
@@ -155,7 +162,7 @@ export default class Survey extends Component {
                 {
                   this.state.isSelect ?
                     this.state.massage.map(item => {
-                      return (<div className="MessageCard" onClick={() => this.switchSurvey(item.title)}>
+                      return (<div key={item.id} className="MessageCard" onClick={() => this.switchSurvey(item.title)}>
                         <div><span>{item.date}</span></div>
                         <div>
                           <span>{item.title}</span>
@@ -164,7 +171,7 @@ export default class Survey extends Component {
                       </div>)
                     }) :
                     this.state.historyMassage.map(item => {
-                      return (<div className="MessageCard" onClick={() => this.switchSurvey(item.title)} >
+                      return (<div  key={item.id} className="MessageCard" onClick={() => this.switchSurvey(item.title)} >
                         <div><span>{item.date}</span></div>
                         <div>
                           <span>{item.title}</span>
