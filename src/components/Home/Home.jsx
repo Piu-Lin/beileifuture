@@ -44,7 +44,7 @@ export default class Home extends Component {
           <div className='homeSubCardLine'>
             <div className='homeSubCardItem'>
               <img className='homeSubCardBg' src={InformationBulletins} alt="InformationBulletins" />
-              <div className='homeSubCardTitle'>信息公告</div>
+              <div className='homeSubCardTitle'>三务公开</div>
               <div className='homeSubCardContent'>村务信息公开</div>
             </div>
             <div className='homeSubCardItem'>
@@ -97,6 +97,23 @@ export default class Home extends Component {
                 <div className='homeSubCardCaption'>清廉公开</div>
                 <div className='homeSubCardPart'>人民监督</div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className='HomeNavCard'>
+          <div className='HomeNavCardMainTitle'>乡村资讯</div>
+          <div className='HomeZiXunItemBox'>
+            <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />
+            <div className='HomeZiXunItemContentBox'>
+              <div className='HomeZiXunItemContentTitle'>资讯标题</div>
+              <div className='HomeZiXunItemContentTime'>2023-10-11</div>
+            </div>
+          </div>
+          <div className='HomeZiXunItemBox'>
+            <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />
+            <div className='HomeZiXunItemContentBox'>
+              <div className='HomeZiXunItemContentTitle'>资讯标题</div>
+              <div className='HomeZiXunItemContentTime'>2023-10-11</div>
             </div>
           </div>
         </div>
