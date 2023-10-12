@@ -1,3 +1,13 @@
+/*
+ * @Author: bigliweijie 1771662778@qq.com
+ * @Date: 2023-10-09 09:11:15
+ * @LastEditors: bigliweijie 1771662778@qq.com
+ * @LastEditTime: 2023-10-12 17:26:50
+ * @FilePath: \beileifuture\src\components\Home\Home.jsx
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+ */
 import React, { Component } from 'react'
 import './Home.less'
 import Hero from './Hero.jpeg'

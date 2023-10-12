@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import backIcon from '../icon/back.png'
-import more from '../icon/more.png'
+import backIcon from '../../icon/back.png'
+
+import more from '../../icon/more.png'
 
 import './index.less'
 export default class My  extends Component {

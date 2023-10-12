@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import './index.less'
 
-import Archives from "./Archives/Archives"
-import Points from "./Points/Points"
-import Vote from "./Vote/Vote"
-import Survey from "./Survey/Survey"
-import My from './My/My'
+import Archives from "./components/Archives/Archives"
+import Points from "./components/Points/Points"
+import Vote from "./components/Vote/Vote"
+import Survey from "./components/Survey/Survey"
+import My from './components/My/My'
 
 import headImg from './icon/headimg.png'
 import archives from './icon/archives.png'

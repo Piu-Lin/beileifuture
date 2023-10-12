@@ -2,23 +2,21 @@
  * @Author: bigliweijie 1771662778@qq.com
  * @Date: 2023-10-09 13:43:45
  * @LastEditors: bigliweijie 1771662778@qq.com
- * @LastEditTime: 2023-10-12 17:15:30
+ * @LastEditTime: 2023-10-12 17:21:18
  * @FilePath: \beileifuture\src\components\Mine\Vote\Vote.jsx
  * @Description: 
  * 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
  */
 import React, { Component } from 'react'
-import backIcon from '../icon/back.png'
+import backIcon from '../../icon/back.png'
 import './index.less'
 import {
   Form,
-  Input,
   Button,
   Dialog,
   Space,
   Radio,
-  Checkbox
 } from 'antd-mobile'
 
 export default class Vote extends Component {
