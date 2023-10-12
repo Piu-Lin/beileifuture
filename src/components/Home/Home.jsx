@@ -11,6 +11,9 @@ import ConflictMediation from './icon/ConflictMediation.png'
 import CorruptionConvention from './icon/CorruptionConvention.png'
 import CleanAndOpen from './icon/CleanAndOpen.png'
 import Survey from "../Mine/Survey/Survey"
+import Notification from './components/Notification/Notification'
+import ThreeAffairsOpen from './components/ThreeAffairsOpen/ThreeAffairsOpen'
+import Deliberative from './components/Deliberative/Deliberative'
 
 export default class Home extends Component {
   state = {
@@ -126,24 +129,21 @@ export default class Home extends Component {
         </div>
           </div>
       )
-      case 1:
-          break;
-      case 2:
-        break;
-      case 3:
+      case 1: // 通知公告
+          return (<Notification/>);
+      case 2: // 三务公开
+        return (<ThreeAffairsOpen/>);
+      case 3: // 议事管理
       case 4: // 问卷调查
         return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
-        
-      case 5:
-      case 6:
-      case 7:
-      case 8:
-      case 9:
+      case 5: // 红黑榜
+      case 6: // 线上投票
+      case 7: // 矛盾调解
+      case 8: // 清廉公约
+      case 9: // 清廉公开
       default:
         return (<></>)
     }
-
-
   }
   render() {
     return (
