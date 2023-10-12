@@ -110,14 +110,12 @@ export default class Vote extends Component {
     this.setState({
       isSelect: !this.state.isSelect
     })
-    console.log(this.state)
   }
   switchSurvey = (value) => {
     this.setState({
       isSurveyContext: !this.state.isSurveyContext,
       wenjuanJson: value
     })
-    console.log(this.state)
   }
   render() {
     return (
@@ -140,7 +138,7 @@ export default class Vote extends Component {
                 {
                   this.state.isSelect ?
                     this.state.massage.map(item => {
-                      return (<div className="MessageCard" onClick={() => this.switchSurvey(item.context)}>
+                      return (<div key={item.id} className="MessageCard" onClick={() => this.switchSurvey(item.context)}>
                         <div><span>{item.date}</span></div>
                         <div>
                           <span>{item.title}</span>
@@ -149,7 +147,7 @@ export default class Vote extends Component {
                       </div>)
                     }) :
                     this.state.historyMassage.map(item => {
-                      return (<div className="MessageCard" onClick={() => this.switchSurvey(item.context)} >
+                      return (<div key={item.id} className="MessageCard" onClick={() => this.switchSurvey(item.context)} >
                         <div><span>{item.date}</span></div>
                         <div>
                           <span>{item.title}</span>
