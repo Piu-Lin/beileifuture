@@ -25,10 +25,10 @@ import Notification from './components/Notification/Notification'
 import ThreeAffairsOpen from './components/ThreeAffairsOpen/ThreeAffairsOpen'
 import Deliberative from './components/Deliberative/Deliberative'
 import RedAndBlack from './components/RedAndBlack/RedAndBlack'
-import {ConflictMediation} from './components/ConflictMediation/ConflictMediation'
+import ConflictMediation from './components/ConflictMediation/ConflictMediation'
 import QLConvention from './components/QLConvention/QLConvention'
 import QLOpen from './components/QLOpen/QLOpen'
-
+import Vote from '../Mine/components/Vote/Vote'
 
 
 
@@ -157,7 +157,7 @@ export default class Home extends Component {
       case 5: // 红黑榜
         return (<RedAndBlack SetHomeState={this.SetHomeState} />);
       case 6: // 线上投票
-        return (<RedAndBlack SetHomeState={this.SetHomeState} />);
+        return (<Vote comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />);
       case 7: // 矛盾调解
         return (<ConflictMediation SetHomeState={this.SetHomeState} />);
       case 8: // 清廉公约

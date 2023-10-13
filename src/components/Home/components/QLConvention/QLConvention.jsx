@@ -1,8 +1,21 @@
 import './index.less'
 import React, { Component } from 'react'
+import BackIcon from "../../icon/Back.png"
 export default class QLConvention extends Component {
+  BackToHomeNav=()=>{
+    this.props.SetHomeState(0)
+}
   render() {
   return (
+    <>
+    <div className="TopNav">
+                <div  className="back" onClick={() =>  this.BackToHomeNav()}  >
+                    <img src={BackIcon} alt="返回" />
+                </div>
+                <div className="title">
+                    <span>清廉公约</span>
+                </div>
+            </div>
     <div className="villagersContainer">
       <ul className="villagersContainer__textContainer">
         <div className="villagersContainer__textContainer--title main-title">
@@ -308,5 +321,6 @@ export default class QLConvention extends Component {
         </li>
       </ul>
     </div>
+    </>
   )
 }}

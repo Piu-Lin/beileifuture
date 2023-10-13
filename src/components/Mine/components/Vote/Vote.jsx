@@ -117,13 +117,23 @@ export default class Vote extends Component {
       wenjuanJson: value
     })
   }
+  BackToHomeNav=()=>{
+    this.props.SetHomeState(0)
+}  
   render() {
     return (
       <div className="index">
         <div className="TopNav">
-          <div className="back" onClick={() => { this.state.isSurveyContext ? this.BackTo0() : this.switchSurvey() }} >
+
+          {this.props.comefrom==="1" ?(
+           <div  className="back" onClick={() => { this.state.isSurveyContext ? this.BackToHomeNav() : this.switchSurvey() }} >
+            <img src={backIcon} alt="返回" />
+            </div>
+          ):(
+            <div  className="back" onClick={() => { this.state.isSurveyContext ? this.BackTo0() : this.switchSurvey() }} >
             <img src={backIcon} alt="返回" />
           </div>
+          )}
           <div className="title">
             <span>投票</span>
           </div>

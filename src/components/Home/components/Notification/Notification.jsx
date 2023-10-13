@@ -9,13 +9,13 @@ export default class Notification extends Component {
         return (
             <>
             <div className="TopNav">
-             <div  className="back" onClick={() =>  this.BackToHomeNav()}  >
-            <img src={BackIcon} alt="返回" />
+                <div  className="back" onClick={() =>  this.BackToHomeNav()}  >
+                    <img src={BackIcon} alt="返回" />
+                </div>
+                <div className="title">
+                    <span>通知公告</span>
+                </div>
             </div>
-          <div className="title">
-            <span>通知公告</span>
-          </div>
-        </div>
             </>
         )
     }
