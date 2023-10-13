@@ -65,16 +65,16 @@ export default class Home extends Component {
           <img id="hero" src={Hero} alt="hero" />
         <div  style={{top:'-5vh'}} className='HomeNavCard'>
           <div id="emergencyMessage">
-            <img id='emergencyIcon' src={emergencyIcon} alt="emergencyIcon" />
+            <img  onClick={()=>{this.SetHomeState(1)}} id='emergencyIcon' src={emergencyIcon} alt="emergencyIcon" />
             <div id="emergencyContent">{this.state.emergency.content}</div>
           </div>
           <div className='homeSubCardLine'>
-            <div className='homeSubCardItem'>
+            <div  onClick={()=>{this.SetHomeState(2)}} className='homeSubCardItem'>
               <img className='homeSubCardBg' src={InformationBulletins} alt="InformationBulletins" />
               <div className='homeSubCardTitle'>三务公开</div>
               <div className='homeSubCardContent'>村务信息公开</div>
             </div>
-            <div className='homeSubCardItem'>
+            <div  onClick={()=>{this.SetHomeState(3)}} className='homeSubCardItem'>
               <img className='homeSubCardBg' src={DeliberativeManagement} alt="DeliberativeManagement" />
               <div className='homeSubCardTitle'>议事管理</div>
               <div className='homeSubCardContent'>村务事程决策</div>
@@ -86,7 +86,7 @@ export default class Home extends Component {
                 <div className='homeSubCardTitle'>问卷调查</div>
                 <div className='homeSubCardContent'>村务事项调研</div>
               </div>
-              <div  className='homeSubCardItem'>
+              <div  onClick={()=>{this.SetHomeState(5)}}  className='homeSubCardItem'>
                 <img className='homeSubCardBg' src={RABList} alt="RABList" />
                 <div className='homeSubCardTitle'>红黑榜</div>
                 <div className='homeSubCardContent'>村民行为奖惩</div>
@@ -95,14 +95,14 @@ export default class Home extends Component {
         </div>
         <div className='HomeNavCard'>
           <div className='homeSubCardLine'>
-            <div style={{backgroundColor:'#fff6f6'}} className='homeSubCardItem homeSubCardItemReplenish'>
+            <div onClick={()=>{this.SetHomeState(6)}} style={{backgroundColor:'#fff6f6'}} className='homeSubCardItem homeSubCardItemReplenish'>
               <img className='homeSubCardBgI' src={OnlineVote} alt="OnlineVote" />
               <div>
                 <div className='homeSubCardCaption'>线上投票</div>
                 <div className='homeSubCardPart'>民主决策</div>
               </div>
             </div>
-            <div style={{backgroundColor:'#f1f8ff'}} className='homeSubCardItem homeSubCardItemReplenish'>
+            <div onClick={()=>{this.SetHomeState(7)}} style={{backgroundColor:'#f1f8ff'}} className='homeSubCardItem homeSubCardItemReplenish'>
               <img className='homeSubCardBgI' src={ConflictMediationimg} alt="ConflictMediationimg" />
               <div>
                 <div className='homeSubCardCaption'>矛盾调解</div>
@@ -111,14 +111,14 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='homeSubCardLine'>
-            <div onClick={()=>{this.SetHomeState(8)}} style={{backgroundColor:'#f1fdff'}} className='homeSubCardItem homeSubCardItemReplenish'>
+            <div  onClick={()=>{this.SetHomeState(8)}} style={{backgroundColor:'#f1fdff'}} className='homeSubCardItem homeSubCardItemReplenish'>
               <img className='homeSubCardBgI' src={CorruptionConvention} alt="CorruptionConvention" />
               <div>
                 <div className='homeSubCardCaption'>清廉公约</div>
                 <div className='homeSubCardPart'>民众约定</div>
               </div>
             </div>
-            <div style={{backgroundColor:'#fff9f2'}} className='homeSubCardItem homeSubCardItemReplenish'>
+            <div onClick={()=>{this.SetHomeState(9)}} style={{backgroundColor:'#fff9f2'}} className='homeSubCardItem homeSubCardItemReplenish'>
               <img className='homeSubCardBgI' src={CleanAndOpen} alt="CleanAndOpen" />
               <div>
                 <div className='homeSubCardCaption'>清廉公开</div>
@@ -147,23 +147,23 @@ export default class Home extends Component {
           </div>
       )
       case 1: // 通知公告
-          return (<Notification/>);
+          return (<Notification SetHomeState={this.SetHomeState} />);
       case 2: // 三务公开
-        return (<ThreeAffairsOpen/>);
+        return (<ThreeAffairsOpen SetHomeState={this.SetHomeState} />);
       case 3: // 议事管理
-        return (<Deliberative/>);
+        return (<Deliberative SetHomeState={this.SetHomeState} />);
       case 4: // 问卷调查
         return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
       case 5: // 红黑榜
-        return (<RedAndBlack/>);
+        return (<RedAndBlack SetHomeState={this.SetHomeState} />);
       case 6: // 线上投票
-        return (<RedAndBlack/>);
+        return (<RedAndBlack SetHomeState={this.SetHomeState} />);
       case 7: // 矛盾调解
-        return (<ConflictMediation/>);
+        return (<ConflictMediation SetHomeState={this.SetHomeState} />);
       case 8: // 清廉公约
-        return (<QLConvention/>);
+        return (<QLConvention SetHomeState={this.SetHomeState} />);
       case 9: // 清廉公开
-        return (<QLOpen/>);
+        return (<QLOpen SetHomeState={this.SetHomeState} />);
       default:
         return (<></>)
     }
