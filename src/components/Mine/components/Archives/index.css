@@ -1,5 +1,6 @@
 .index {
   background-color: #f9f9f9;
+  height: 100vh;
 }
 .index .TopNav {
   height: 50px;
@@ -26,7 +27,66 @@
   border-radius: 8px;
   margin-top: 10px;
 }
-.index .Archives img {
+.index .Archives .moreTitle {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 12px;
+}
+.index .Archives .more {
+  padding: 10px;
+  font-size: 15px;
+}
+.index .Archives .icon {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+}
+.index .Archives .healthTitle {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #9999992d;
+  padding-bottom: 6px;
+  color: #666;
+  font-size: 16px;
   width: 100%;
-  border-radius: 8px;
+  height: 2em;
+}
+.index .Archives .healthTitle img {
+  width: 1em;
+  height: 1em;
+}
+.index .Archives .healthTitle div {
+  display: flex;
+  align-items: center;
+}
+.index .Archives .healthTitle div span {
+  margin: 0 3px;
+}
+.index .Archives .healthContext {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.index .Archives .healthContext .card {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5%;
+}
+.index .Archives .healthContext .card .cardTitle {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.index .Archives .healthContext .card .cardTitle .cardicon {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+  margin-right: 3px;
+}
+.index .Archives .healthContext .card .cardContext {
+  font-size: 15px;
 }
