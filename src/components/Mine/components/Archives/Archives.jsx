@@ -180,7 +180,7 @@ export default class Archives extends Component {
                   <div onClick={() => {
                     this.SwitchMore()
                   }}>
-                    <span>李显示</span>
+                    <span>陈政闻</span>
                     <img src={more} alt="" />
                   </div>
                 </div>
@@ -245,10 +245,22 @@ export default class Archives extends Component {
                 height: "40vh",
                 overflow: "auto"
               }}>
-                <Steps direction='vertical'>
+                <div className="healthTitle">
+                  <div>
+                    <svg className="icon" aria-hidden="true">
+                      <use xlinkHref="#icon-jiankang"></use>
+                    </svg>
+                    <span>医生建议</span>
+                  </div>
+                </div>
+                <Steps direction='vertical' style={{
+                  height: "35vh",
+                  overflow: "auto"
+                }}>
                   {
-                    this.state.heath.map(item => (
+                    this.state.heath.map((item, i) => (
                       <Step
+                        key={i}
                         title={item.title}
                         status='finish'
                         description={item.description}
