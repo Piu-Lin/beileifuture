@@ -16,3 +16,40 @@
       margin: auto;   
     }
   }
+  .TrSubNav{
+    height: 7vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 550;
+    .TrSubNavActive{
+      color: rgb(0, 145, 87);
+    }
+  }
+.TrBox{
+  height: 75vh;
+  overflow-y: auto;
+  .TrItemBox{
+    height: 10vh;
+    padding: 3vh 7vw;
+    margin: 3vh 5vw 0px 5vw;
+    border: 1px solid rgba(15, 15, 15, 0.323) ;
+    border-radius: 8px;
+    .TrItemTitle{
+      font-size: 1.2rem;
+      font-weight: 520;
+    }
+    .TrItemBottomLine{
+      display: flex;
+      justify-content: space-between;
+      .TrItemTime{
+        margin-top: 3vh;
+      }
+      .TrItemLookDetail{
+        margin-top: 3vh;
+      }
+    }
+  }
+}
