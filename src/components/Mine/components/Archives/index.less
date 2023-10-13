@@ -1,34 +1,108 @@
-.index{
+.index {
   background-color: #f9f9f9;
-  .TopNav{
+  background-color: #f9f9f9;
+  height: 100vh;
+  .TopNav {
     height: 50px;
     width: 100%;
     background-color: white;
     display: flex;
     align-items: center;
-    .back{
+
+    .back {
       position: absolute;
       margin: 0 5px 0;
-        img{
-          width: 20px;
-        }
+
+      img {
+        width: 20px;
+      }
     }
-    .title{
+
+    .title {
       font-size: 18px;
-      margin: auto;   
+      margin: auto;
     }
-  
+
   }
-  .Archives{
+
+  .Archives {
     width: 90%;
     padding: 10px;
     background-color: white;
     border-radius: 8px;
     margin-top: 10px;
-    img{
-      width: 100%;
-    border-radius: 8px;
-
+    .moreTitle{
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 12px;
     }
+    .more{
+      padding: 10px;
+      font-size: 15px;
+    }
+    .icon {
+      width: 2em;
+      height: 2em;
+      fill: currentColor;
+    }
+
+    .healthTitle {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #9999992d;
+      padding-bottom: 6px;
+      color: #666;
+      font-size: 16px;
+      width: 100%;
+      height: 2em;
+
+      img {
+        width: 1em;
+        height: 1em;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        span {
+          margin: 0 3px;
+        }
+      }
+    }
+
+    .healthContext {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .card {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2.5%;
+        .cardTitle {
+          display: flex;
+          align-items: center;
+          font-size: 18px;
+          font-weight: bold;
+
+
+          .cardicon {
+            width: 2em;
+            height: 2em;
+            fill: currentColor;
+            margin-right: 3px;
+          }
+        }
+        .cardContext{
+          font-size: 15px;
+        }
+      }
+    }
+
   }
+
 }
