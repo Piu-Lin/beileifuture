@@ -60,10 +60,10 @@ export default class ThreeAffairsOpen extends Component {
                     "TrItemDetail": "内容内容内容内容内容内容内容内容内容内容内容内容"
                 }
             ],
-        card:{
-            TrItemTitle:"",
-            TrItemTime:'',
-            TrItemDetail:''
+        card: {
+            TrItemTitle: "",
+            TrItemTime: '',
+            TrItemDetail: ''
         }
 
     }
@@ -75,9 +75,9 @@ export default class ThreeAffairsOpen extends Component {
             isDetail: !this.state.isDetail
         })
     }
-    SetCard=(TrItemTitle,TrItemTime,TrItemDetail)=>{
+    SetCard = (TrItemTitle, TrItemTime, TrItemDetail) => {
         this.setState({
-            card:{
+            card: {
                 TrItemTitle,
                 TrItemTime,
                 TrItemDetail
@@ -92,7 +92,7 @@ export default class ThreeAffairsOpen extends Component {
                         {
                             this.state.dangFei.map((item, i) => {
                                 return (
-                                    <div className='TrItemBox' onClick={() => { this.changeDetail();this.SetCard(item.TrItemTitle,item.TrItemTime,item.TrItemDetail)}}>
+                                    <div className='TrItemBox' onClick={() => { this.changeDetail(); this.SetCard(item.TrItemTitle, item.TrItemTime, item.TrItemDetail) }}>
                                         <div className='TrItemTitle'>{item.TrItemTitle}</div>
                                         <div className='TrItemBottomLine'>
                                             <div className='TrItemTime'>{item.TrItemTime}</div>
@@ -110,8 +110,8 @@ export default class ThreeAffairsOpen extends Component {
                         {
                             this.state.duixiang.map((item, i) => {
                                 return (
-                                    <div className='TrItemBox' onClick={() => { this.changeDetail();this.SetCard(item.TrItemTitle,item.TrItemTime,item.TrItemDetail)}}>
-                                  
+                                    <div className='TrItemBox' onClick={() => { this.changeDetail(); this.SetCard(item.TrItemTitle, item.TrItemTime, item.TrItemDetail) }}>
+
                                         <div className='TrItemTitle'>{item.TrItemTitle}</div>
                                         <div className='TrItemBottomLine'>
                                             <div className='TrItemTime'>{item.TrItemTime}</div>
@@ -129,8 +129,8 @@ export default class ThreeAffairsOpen extends Component {
                         {
                             this.state.shouzhi.map((item, i) => {
                                 return (
-                                    <div className='TrItemBox' onClick={() => { this.changeDetail();this.SetCard(item.TrItemTitle,item.TrItemTime,item.TrItemDetail)}}>
-                                  
+                                    <div className='TrItemBox' onClick={() => { this.changeDetail(); this.SetCard(item.TrItemTitle, item.TrItemTime, item.TrItemDetail) }}>
+
                                         <div className='TrItemTitle'>{item.TrItemTitle}</div>
                                         <div className='TrItemBottomLine'>
                                             <div className='TrItemTime'>{item.TrItemTime}</div>
@@ -161,7 +161,7 @@ export default class ThreeAffairsOpen extends Component {
                 </div>
 
                 {
-                    isDetail ? (<ThreeAffairsOpenDetail card={this.state.card}/>) :
+                    isDetail ? (<ThreeAffairsOpenDetail card={this.state.card} />) :
                         (<>
                             <div className='TrSubNav'>
                                 {this.state.TreNavState === 1 ? (<div className='TrSubNavActive'>党务公开</div>) : (<div onClick={() => { this.changeTreNavState(1) }}>党务公开</div>)}
@@ -182,20 +182,20 @@ export const ThreeAffairsOpenDetail = (props) => {
     return (
         <div className='index'>
             <div className="Archives">
-                <div className="healthTitle">
+                <div className="DetailTitle">
                     <div>
                         <span>{props.card.TrItemTitle}</span>
                     </div>
+                    <div>
+                        <span>{props.card.TrItemTime}</span>
+                    </div>
                 </div>
-                <div className="healthContext">
+                <div className="DetailContext">
                     <div className="card">
-                        <div className="cardTitle">
 
-                            <span>{props.card.TrItemTime}</span>
-                        </div>
                         <div className="cardContext">
                             <span>
-                               {props.card.TrItemDetail}
+                                {props.card.TrItemDetail}
                             </span>
                         </div>
                     </div>
