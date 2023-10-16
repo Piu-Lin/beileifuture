@@ -29,7 +29,7 @@ export default class Vote extends Component {
   "id": 1,
   "date": "2023年10月12日",
   "title": "选举村委会的投票",
-  "context": "林日升主任"
+  "context": "张九主任"
   },
   
   {
