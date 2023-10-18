@@ -29,7 +29,7 @@ export default class Mine extends Component {
             <div className="headImg">
               <img className="imgHead" src={headImg} alt="头像" />
               <div>
-                <span>李炜杰</span>
+                <span>用户1</span>
                 <div onClick={() => this.MineState(3)}>
                   <img src={points} alt="积分" />
                   <span>积分:</span>

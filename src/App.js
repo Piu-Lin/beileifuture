@@ -11,6 +11,7 @@
 import Home from "./components/Home/Home.jsx"
 import BottomNav from "./components/BottomNav/BottomNav.jsx"
 import Mine from "./components/Mine/Mine.jsx"
+import Neighbourhood from "./components/Neighbourhood/Neighbourhood.jsx"
 
 import './App.less';
 import React, { Component } from 'react'
@@ -22,11 +23,25 @@ export default class App extends Component {
   BottomNavStateSwich = (tobe) => {
     this.setState({ BottomNavState: tobe })
   }
+  renderContent=()=>{
+    switch (this.state.BottomNavState) 
+    {
+      case 0:
+        return (<Home />)
+      case 1:
+        return (<Mine />)
+      case 2:
+        return (<Neighbourhood/>)
+
+      default:
+        return null
+    }
+  }
   render() {
     return (
       <>
         <BottomNav BottomNavStateSwich={this.BottomNavStateSwich} />
-        {this.state.BottomNavState === 0 ? (<Home />) : (<Mine />)}
+       {this.renderContent()}
       </>
     )
   }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import homeBottomNav from './icon/homeBottomNav.png'
 import mineBottomNav from './icon/mineBottomNav.png'
+import neighbourhoodNav from './icon/neighbourhoodNav.png'
+
 
 export default class BottomNav extends Component {
   BottomNavStateSwichTo1 = () => {
@@ -8,6 +10,9 @@ export default class BottomNav extends Component {
   }
   BottomNavStateSwichTo0 = () => {
     this.props.BottomNavStateSwich(0)
+  }
+  BottomNavStateSwichTo2 = () => {
+    this.props.BottomNavStateSwich(2)
   }
   render() {
     const ssBottomNavBox = {
@@ -34,6 +39,10 @@ export default class BottomNav extends Component {
         <div onClick={() => { this.BottomNavStateSwichTo0() }} style={ssBottomNavitem}>
           <img src={homeBottomNav} alt='主页' />
           <div>主页</div>
+        </div>
+        <div onClick={() => { this.BottomNavStateSwichTo2() }} style={ssBottomNavitem}>
+          <img src={neighbourhoodNav} alt='主页' />
+          <div>邻里</div>
         </div>
         <div onClick={() => { this.BottomNavStateSwichTo1() }} style={ssBottomNavitem}>
           <img src={mineBottomNav} alt='我的' />

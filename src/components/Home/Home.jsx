@@ -49,8 +49,8 @@ export default class Home extends Component {
       }
     }],
     emergency:{
-      pushTime:"2023年10月9日",
-      content:"紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️紧急通知‼️",
+      pushTime:"2023年10月18日",
+      content:"吴佳明检查发现严重隐患,请及时关注!",
     },
     HomeState: 0,
   }
@@ -127,7 +127,7 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
-        <div className='HomeNavCard'>
+        <div className='HomeNavCard' style={{display:"none"}}>
           <div className='HomeNavCardMainTitle'>乡村资讯</div>
           <div className='HomeZiXunItemBox'>
             <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />

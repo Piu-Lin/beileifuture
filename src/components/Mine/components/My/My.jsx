@@ -26,7 +26,7 @@ export default class My  extends Component {
           <li>
             <span>名字</span>
             <div>
-              <span>李炜杰</span>
+              <span>用户1</span>
               <img src={more} alt="更多" />
               </div>
           </li>
