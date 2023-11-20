@@ -148,8 +148,10 @@
   display: flex;
   margin: 10px 0;
     div:nth-child(1){
+      align-self: center;
       width: 30%;
       img{
+        border-radius: 3px;
         width: 100px;
       }
     }
@@ -164,7 +166,10 @@
         margin-top: 3px;
       }
       .content{
+        height: 6vh;
+        overflow: hidden;
         text-indent:2em;
+        text-overflow: ellipsis; 
       }
       .date{
         text-align: end;

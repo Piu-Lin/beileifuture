@@ -117,6 +117,8 @@ export default class Vote extends Component {
       wenjuanJson: value
     })
   }
+
+  
   BackToHomeNav=()=>{
     this.props.SetHomeState(0)
 }  
