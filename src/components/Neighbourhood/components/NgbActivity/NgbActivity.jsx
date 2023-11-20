@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
+import { ContentDetail } from "../ContentDetail/ContentDetail";
 
 export default class NgbActivity extends Component {
   BackToHomeNav = () => {
@@ -88,27 +89,7 @@ export default class NgbActivity extends Component {
           "在这个信息爆炸的时代，我们常常被各种电子设备和社交媒体所包围，忽略了与身边的邻里建立真实的联系。",
         date: "2023年10月18日",
       },
-      {
-        url: "http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg",
-        name: "阅读邻里活动",
-        content:
-          "在这个信息爆炸的时代，我们常常被各种电子设备和社交媒体所包围，忽略了与身边的邻里建立真实的联系。",
-        date: "2023年10月18日",
-      },
-      {
-        url: "http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg",
-        name: "阅读邻里活动",
-        content:
-          "在这个信息爆炸的时代，我们常常被各种电子设备和社交媒体所包围，忽略了与身边的邻里建立真实的联系。",
-        date: "2023年10月18日",
-      },
-      {
-        url: "http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg",
-        name: "阅读邻里活动",
-        content:
-          "在这个信息爆炸的时代，我们常常被各种电子设备和社交媒体所包围，忽略了与身边的邻里建立真实的联系。与身边的邻里建立真实的与与身边的邻里建立真实的联身边的邻里建立真实的联联系与身边的邻里建立真实的联系vv",
-        date: "2023年10月18日",
-      },
+
     ],
     isDetailed: false,
   };
@@ -122,42 +103,45 @@ export default class NgbActivity extends Component {
     const { isDetailed } = this.state;
     return (
       <>
-        <div className="index">
-          <div className="TopNav">
-            <div
-              className="back"
-              onClick={() => {
-                isDetailed ? this.chanegDetailed() : this.BackToHomeNav();
-              }}
-            >
-              <img src={BackIcon} alt="返回" />
-            </div>
-            <div className="title">
-              <span>邻里活动</span>
-            </div>
-          </div>
-          <div className="Archives">
-            {
-            this.state.items.map((element) => {
-            return(
-            <>
-              <div className="item">
-                <div>
-                  <img src={element.url} alt="图片" />
+        {isDetailed ? (
+          <ContentDetail click={this.chanegDetailed} />
+        ) : (
+          <>
+            <div className="index">
+              <div className="TopNav">
+                <div
+                  className="back"
+                  onClick={() => {
+                   this.BackToHomeNav();
+                  }}
+                >
+                  <img src={BackIcon} alt="返回" />
                 </div>
-                <div>
-                  <span className="title">{element.name}</span>
-                  <span className="content">
-                    {element.content}.
-                  </span>
-                  <span className="date">{element.date}</span>
+                <div className="title">
+                  <span>邻里活动</span>
                 </div>
               </div>
-              </>
-            )
-            })}
-          </div>
-        </div>
+              <div className="Archives">
+                {this.state.items.map((element, i) => {
+                  return (
+                    <>
+                      <div className="item" key={i} onClick={() => this.chanegDetailed()}>
+                        <div>
+                          <img src={element.url} alt="图片" />
+                        </div>
+                        <div>
+                          <span className="title">{element.name}</span>
+                          <span className="content">{element.content}.</span>
+                          <span className="date">{element.date}</span>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
       </>
     );
   }

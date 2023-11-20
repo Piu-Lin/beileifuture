@@ -16,6 +16,7 @@ import emergencyIcon from "./icon/emergencyIcon.png"
 import Notification from './components/Notification/Notification'
 import NgbConvention from './components/NgbConvention/NgbConvention'
 import NgbActivity from './components/NgbActivity/NgbActivity'
+import { ContentDetail } from "./components/ContentDetail/ContentDetail";
 
 
 
@@ -71,7 +72,7 @@ export default class Neighbourhood extends Component {
         </div>
         <div className='HomeNavCard'>
           <div className='HomeNavCardMainTitle'>邻里文化</div>
-          <div className='HomeZiXunItemBox'>
+          <div className='HomeZiXunItemBox' onClick={() => {this.SetHomeState(10)}}>
             <img className='HomeZiXunSuccinctImg' src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg" alt="资讯图片" />
             <div className='HomeZiXunItemContentBox'>
               <div className='HomeZiXunItemContentTitle'>老人慰问活动</div>
@@ -94,6 +95,8 @@ export default class Neighbourhood extends Component {
         return (<NgbConvention SetHomeState={this.SetHomeState} />);
       case 9: // 清廉公开
         return (<NgbActivity SetHomeState={this.SetHomeState} />);
+      case 10: // 公益活动
+        return (<ContentDetail click={this.SetHomeState} />);
       default:
         return (<></>)
     }

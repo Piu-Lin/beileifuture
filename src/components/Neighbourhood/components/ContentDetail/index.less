@@ -1,0 +1,83 @@
+.maincontent {
+  width: 100%;
+  height: 94vh;
+
+  overflow-y: auto;
+  .content {
+    width: 95%;
+    min-height: 25vh;
+    padding: 0 2.5% 2.5% 2.5%;
+    background-color: white;
+  }
+  .title {
+    h2 {
+      margin: 0;
+    }
+  }
+  .date {
+    span {
+      margin: 2px;
+      color: #666;
+      text-indent: 2em;
+    }
+  }
+  .indexContent {
+    text-indent: 2em;
+  }
+  .toolbar {
+    display: flex;
+    flex-direction: row-reverse;
+    .toolbar-item {
+      margin: 5px;
+      span {
+        display: block;
+        font-size: 10px;
+      }
+      .cardicon {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  .comment {
+    width: 100%;
+    .title {
+      margin: 15px 5px;
+      display: flex;
+      justify-content: space-between;
+      span:nth-child(1) {
+        color: #666;
+      }
+      span:nth-child(2) {
+        color: rgb(74, 91, 146);
+      }
+    }
+    .comment-list {
+      width: 100%;
+      display: flex;
+    justify-content: center;
+    margin-top: 5px 0;
+      .comment-headimg {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        img {
+          width: 100%;
+          height: 100%;
+        border-radius: 4px;
+
+        }
+      }
+      .comment-content{
+        width: 80vw;
+        p{
+            margin: 5px 0;
+        }
+      }
+    }
+  }
+}
+.textarea{
+    background-color: white;
+    margin: 5px 0;
+}
