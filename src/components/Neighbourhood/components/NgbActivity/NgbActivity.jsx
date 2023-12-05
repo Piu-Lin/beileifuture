@@ -79,14 +79,14 @@ export default class NgbActivity extends Component {
         url: "http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg",
         name: "慰问老人邻里活动",
         content:
-          "倍磊村一直以来都是一个充满温情和凝聚力的社区，我们始终关心着每一位村民的幸福与健康",
+          "倍磊村一直以来都是一个充满温情和凝聚力的社区，我们始终关心着每一位村民的幸福与健康啥的",
         date: "2023年10月18日",
       },
       {
         url: "http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg",
         name: "阅读邻里活动",
         content:
-          "在这个信息爆炸的时代，我们常常被各种电子设备和社交媒体所包围，忽略了与身边的邻里建立真实的联系。",
+          "在这个信息爆炸的时代，我们常常被各种asdsa sdasd adasdsa撒旦  ",
         date: "2023年10月18日",
       },
 
@@ -131,7 +131,7 @@ export default class NgbActivity extends Component {
                         </div>
                         <div>
                           <span className="title">{element.name}</span>
-                          <span className="content">{element.content}.</span>
+                          <span className="content">{element.content}</span>
                           <span className="date">{element.date}</span>
                         </div>
                       </div>

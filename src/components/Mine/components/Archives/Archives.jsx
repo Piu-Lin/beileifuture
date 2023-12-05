@@ -169,7 +169,7 @@ export default class Archives extends Component {
           isMore ? (<ArchivesMore values={values} />)
             :
             (<>
-              <div className="Archives">
+              <div className="heath">
                 <div className="healthTitle">
                   <div>
                     <svg className="icon" aria-hidden="true">

@@ -12,36 +12,46 @@ import Home from "./components/Home/Home.jsx"
 import BottomNav from "./components/BottomNav/BottomNav.jsx"
 import Mine from "./components/Mine/Mine.jsx"
 import Neighbourhood from "./components/Neighbourhood/Neighbourhood.jsx"
+import Login from './components/Login/index.jsx'
 
 import './App.less';
 import React, { Component } from 'react'
 
 export default class App extends Component {
   state = {
-    BottomNavState: 0,
+    BottomNavState: 3,
+    isLogin: false
   }
   BottomNavStateSwich = (tobe) => {
     this.setState({ BottomNavState: tobe })
   }
-  renderContent=()=>{
-    switch (this.state.BottomNavState) 
-    {
+
+  login = () => {
+    this.setState({ isLogin: true,BottomNavState: 0 })
+  }
+
+  renderContent = () => {
+    switch (this.state.BottomNavState) {
       case 0:
         return (<Home />)
       case 1:
         return (<Mine />)
       case 2:
-        return (<Neighbourhood/>)
+        return (<Neighbourhood />)
 
       default:
-        return null
+        return (<Login login={this.login} />)
     }
   }
   render() {
+    const { isLogin } = this.state
     return (
       <>
-        <BottomNav BottomNavStateSwich={this.BottomNavStateSwich} />
-       {this.renderContent()}
+        {
+          isLogin ?
+            <BottomNav BottomNavStateSwich={this.BottomNavStateSwich} /> : <></>
+        }
+        {this.renderContent()}
       </>
     )
   }
