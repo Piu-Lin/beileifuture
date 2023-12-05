@@ -84,6 +84,15 @@ export default class ThreeAffairsOpen extends Component {
             }
         })
     }
+    init = () => {
+        fetch("http://218.0.59.244:10009/prod-api/governance/money/openList")
+          .then((response) => response.json())
+          .then((data) => this.setState({ shouzhi: data.rows }))
+          .catch((error) => console.log(error));
+      };
+      componentDidMount(){
+        this.init();
+      }
     contentRender = () => {
         switch (this.state.TreNavState) {
             case 1:
@@ -129,11 +138,11 @@ export default class ThreeAffairsOpen extends Component {
                         {
                             this.state.shouzhi.map((item, i) => {
                                 return (
-                                    <div className='TrItemBox'key={i} onClick={() => { this.changeDetail(); this.SetCard(item.TrItemTitle, item.TrItemTime, item.TrItemDetail) }}>
+                                    <div className='TrItemBox'key={i} onClick={() => { this.changeDetail(); this.SetCard(item.name, item.time, item.abstractInfo) }}>
 
-                                        <div className='TrItemTitle'>{item.TrItemTitle}</div>
+                                        <div className='TrItemTitle'>{item.name}</div>
                                         <div className='TrItemBottomLine'>
-                                            <div className='TrItemTime'>{item.TrItemTime}</div>
+                                            <div className='TrItemTime'>{item.time}</div>
                                             <div className='TrItemLookDetail'>查看详情</div>
                                         </div>
                                     </div>

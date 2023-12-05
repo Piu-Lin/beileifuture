@@ -1,12 +1,37 @@
 import "./index.less";
 import React, { useState } from "react";
-import { Form, Input, Button } from "antd-mobile";
+import { Form, Input, Button, Toast } from "antd-mobile";
 
 const Login = (props) => {
   const onFinish = (e) => {
-    console.log(e)
-    props.login()
-  }
+    console.log(e);
+    fetch(
+      `http://218.0.59.244:10009/prod-api/basics/population/openList?idCard=${e.idCard}&name=${e.name}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.rows.length === 0) {
+          Toast.show({
+            icon: "fail",
+            content: "该用户不存在",
+          });
+          return;
+        }
+        console.log(JSON.stringify(data.rows[0]))
+        localStorage.setItem("user", JSON.stringify(data.rows[0]));
+        props.login()
+        Toast.show({
+          icon: "success",
+          content: "登录成功",
+        });
+      })
+      .catch((error) =>
+        Toast.show({
+          icon: "fail",
+          content: error,
+        })
+      );
+  };
   return (
     <>
       <div className="login">
@@ -21,11 +46,11 @@ const Login = (props) => {
               </Button>
             }
           >
-            <Form.Item label="用户名" name="username">
+            <Form.Item label="身份证号码" name="idCard">
               <Input placeholder="请输入用户名" clearable />
             </Form.Item>
-            <Form.Item label="密码" name="password">
-              <Input placeholder="请输入密码" clearable type="password" />
+            <Form.Item label="姓名" name="name">
+              <Input placeholder="请输入密码" clearable />
             </Form.Item>
           </Form>
         </div>

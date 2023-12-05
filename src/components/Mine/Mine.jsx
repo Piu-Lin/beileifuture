@@ -17,9 +17,14 @@ import points from './icon/points.png'
 export default class Mine extends Component {
   state = {
     MineState: 0,
+    username:'用户1'
   }
   MineState = (tobe) => {
     this.setState({ MineState: tobe })
+  }
+  componentDidMount(){
+    const username = JSON.parse(localStorage.getItem('user'))
+    this.setState({username:username.name})
   }
   renderContent() {
     switch (this.state.MineState) {
@@ -29,7 +34,7 @@ export default class Mine extends Component {
             <div className="headImg">
               <img className="imgHead" src={headImg} alt="头像" />
               <div>
-                <span>用户1</span>
+                <span>{this.state.username}</span>
                 <div onClick={() => this.MineState(3)}>
                   <img src={points} alt="积分" />
                   <span>积分:</span>

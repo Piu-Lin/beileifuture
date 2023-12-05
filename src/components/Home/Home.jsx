@@ -64,8 +64,8 @@ export default class Home extends Component {
           <div className='HomeNavBox'>
           <img id="hero" src={Hero} alt="hero" />
         <div  style={{top:'-5vh'}} className='HomeNavCard'>
-          <div id="emergencyMessage">
-            <img  onClick={()=>{this.SetHomeState(1)}} id='emergencyIcon' src={emergencyIcon} alt="emergencyIcon" />
+          <div id="emergencyMessage"  onClick={()=>{this.SetHomeState(1)}} >
+            <img  id='emergencyIcon' src={emergencyIcon} alt="emergencyIcon" />
             <div id="emergencyContent">{this.state.emergency.content}</div>
           </div>
           <div className='homeSubCardLine'>
