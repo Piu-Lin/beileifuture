@@ -46,17 +46,25 @@ export default class ConflictMediation extends Component {
                                 }
                             >
                                 <Form.Item
-                                    name='name'
+                                    name='type'
                                     label='矛盾类型'
                                     rules={[{ required: true, message: '姓名不能为空' }]}
                                 >
                                     <Input onChange={console.log} placeholder='请输入矛盾类型' />
                                 </Form.Item>
-                                <Form.Item name='address' label='矛盾详情'>
+                                <Form.Item name='content' label='矛盾详情'>
                                     <TextArea
                                         placeholder='请输入矛盾详情'
                                         maxLength={100}
-                                        rows={10}
+                                        rows={5}
+                                        showCount
+                                    />
+                                </Form.Item>
+                                <Form.Item name='adjustExpect' label='调节期待'>
+                                    <TextArea
+                                        placeholder='调节期待'
+                                        maxLength={100}
+                                        rows={5}
                                         showCount
                                     />
                                 </Form.Item>

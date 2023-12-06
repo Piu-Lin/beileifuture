@@ -9,9 +9,24 @@ export default class My  extends Component {
     this.props.MineState(0)
   }
   state = {
+    name:'',
+    phone:'',
+    idCard:''
     
   }
+  init = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+    this.setState({
+      name:user.name,
+      phone:user.phone,
+      idCard:user.idCard
+    })
+  };
+  componentDidMount() {
+    this.init();
+  }
   render() {
+    const {name,phone,idCard} = this.state;
     return (
       <div className="index">
         <div className="TopNav">
@@ -26,7 +41,7 @@ export default class My  extends Component {
           <li>
             <span>名字</span>
             <div>
-              <span>用户1</span>
+              <span>{name}</span>
               <img src={more} alt="更多" />
               </div>
           </li>
@@ -40,14 +55,14 @@ export default class My  extends Component {
           <li>
             <span>电话号码</span>
             <div>
-              <span>191577777777</span>
+              <span>{phone?phone:'暂无'}</span>
               <img src={more} alt="更多" />
               </div>
           </li>
           <li>
             <span>账号</span>
             <div>
-              <span>100011110</span>
+              <span>{idCard}</span>
               <img src={more} alt="更多" />
               </div>
           </li>

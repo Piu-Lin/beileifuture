@@ -11,7 +11,7 @@
 import React, { Component } from "react";
 import backIcon from "../../icon/back.png";
 import "./index.less";
-import { Form, Button, Dialog, Space, Radio } from "antd-mobile";
+import { Form, Button, Toast, Space, Radio } from "antd-mobile";
 
 export default class Vote extends Component {
   state = {
@@ -92,6 +92,9 @@ export default class Vote extends Component {
     wenjuanJson: {
       title: "",
     },
+    ishistory: true,
+    endorse:0,
+    oppose:1,
   };
   BackTo0 = () => {
     this.props.MineState(0);
@@ -101,18 +104,28 @@ export default class Vote extends Component {
       isSelect: !this.state.isSelect,
     });
   };
-  switchSurvey = (value, id) => {
+  switchSurvey = (value, id, ishistory,endorse,oppose) => {
     this.setState({
       isSurveyContext: !this.state.isSurveyContext,
       wenjuanJson: { value, id },
+      ishistory,
+      endorse:endorse?endorse:0,
+      oppose:oppose?oppose:0,
     });
   };
   init = () => {
+    const userid = JSON.parse(localStorage.getItem("user"));
     fetch(
-      "http://218.0.59.244:10009/prod-api/governance/online_voting/openList"
+      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=0`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))
+      .catch((error) => console.log(error));
+    fetch(
+      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=1`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setState({ historyMassage: data.rows }))
       .catch((error) => console.log(error));
   };
   componentDidMount() {
@@ -180,7 +193,9 @@ export default class Vote extends Component {
                       <div
                         key={item.id}
                         className="MessageCard"
-                        onClick={() => this.switchSurvey(item.content, item.id)}
+                        onClick={() =>
+                          this.switchSurvey(item.content, item.id, true)
+                        }
                       >
                         <div>
                           <span>
@@ -199,14 +214,16 @@ export default class Vote extends Component {
                       <div
                         key={item.id}
                         className="MessageCard"
-                        onClick={() => this.switchSurvey(item.context)}
+                        onClick={() =>
+                          this.switchSurvey(item.content, item.id, false,item.endorse,item.oppose)
+                        }
                       >
                         <div>
-                          <span>{item.date}</span>
+                          {item.createTime && item.createTime.split(" ")[0]}
                         </div>
                         <div>
                           <span>{item.title}</span>
-                          <span>{item.context}</span>
+                          <span>{item.content}</span>
                         </div>
                       </div>
                     );
@@ -216,7 +233,7 @@ export default class Vote extends Component {
         ) : (
           <div className="SurveyContext">
             {" "}
-            <SurveyContext wenjuanJson={this.state.wenjuanJson} />
+            <SurveyContext wenjuanJson={this.state.wenjuanJson} ishistory={this.state.ishistory} endorse={this.state.endorse} oppose={this.state.oppose} />
           </div>
         )}
       </div>
@@ -225,52 +242,94 @@ export default class Vote extends Component {
 }
 
 export const SurveyContext = (props) => {
-  const userid = JSON.parse(localStorage.getItem('user'))
-
+  const userid = JSON.parse(localStorage.getItem("user"));
 
   const onFinish = (e) => {
-    const jsonData={
-      questionId:props.wenjuanJson.id,
-      answer:e.answer,
-      userId:userid.id
-    }
-    console.log(jsonData)
-    fetch('http://218.0.59.244:10009/prod-api/governance/voting_answer/openAdd', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsonData),
-    })
+    const jsonData = {
+      questionId: props.wenjuanJson.id,
+      answer: e.answer,
+      userId: userid.id,
+    };
+    console.log(jsonData);
+    fetch(
+      "http://218.0.59.244:10009/prod-api/governance/voting_answer/openAdd",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonData),
+      }
+    )
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-    Dialog.alert({
-      content: "提交成功",
-    });
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "提交失败",
+          });
+        }
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
   };
 
   return (
     <>
-      <Form
-        name="form"
-        onFinish={onFinish}
-        footer={
-          <Button block type="submit" color="primary" size="large">
-            提交
-          </Button>
-        }
-      >
-        <Form.Header>{props.wenjuanJson.value}</Form.Header>
-        <Form.Item label="是否同意" name="answer">
-          <Radio.Group>
-            <Space direction="vertical">
-              <Radio value="赞成">赞成</Radio>
-              <Radio value="反对">反对</Radio>
-            </Space>
-          </Radio.Group>
-        </Form.Item>
-      </Form>
+      {props.ishistory ? (
+        <>
+          {" "}
+          <Form
+            name="form"
+            onFinish={onFinish}
+            footer={
+              <Button block type="submit" color="primary" size="large">
+                提交
+              </Button>
+            }
+          >
+            <Form.Header>{props.wenjuanJson.value}</Form.Header>
+            <Form.Item label="是否同意" name="answer">
+              <Radio.Group>
+                <Space direction="vertical">
+                  <Radio value="赞成">赞成</Radio>
+                  <Radio value="反对">反对</Radio>
+                </Space>
+              </Radio.Group>
+            </Form.Item>
+          </Form>
+        </>
+      ) : (
+        <>
+          <div>
+          <Form
+            name="form"
+            onFinish={onFinish}
+        
+          >
+            <Form.Header>{props.wenjuanJson.value}</Form.Header>
+            <Form.Item label="投票结果" name="answer">
+              <div>
+                赞成：{props.endorse} 票
+              </div>
+              <div>
+                反对：{props.oppose} 票
+              </div>
+            </Form.Item>
+          </Form>
+          </div>
+        
+        </>
+      )}
     </>
   );
 };

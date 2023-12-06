@@ -143,16 +143,39 @@ export default class Archives extends Component {
         "title": "乙肝五项",
         "context": "HBsAg"
       }
-    ]
+    ],
+    username:'1',
+    imei:{
+      imei: "00000011100",
+      heartRate: "80",
+      dbp: "70",
+      sdp: "120",
+      oxygen: "95",
+      bloodSugar: "5.8",
+      temperature: "36.3",
+    }
   }
   SwitchMore = () => {
     this.setState({
       isMore: !this.state.isMore
     })
   }
+  init = () => {
+    const username = JSON.parse(localStorage.getItem('user'))
+    this.setState({username:username.name})
 
+    fetch(
+        `http://218.0.59.244:10009/prod-api/governance/health_record/openList?userId=${username.id}`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setState({ imei: data.rows[0] }))
+      .catch((error) => console.log(error));
+  };
+  componentDidMount() {
+    this.init();
+  }
   render() {
-    const { isMore, values } = this.state
+    const { isMore, values,username,imei } = this.state
     const { Step } = Steps
     return (
       <div className="index">
@@ -180,7 +203,7 @@ export default class Archives extends Component {
                   <div onClick={() => {
                     this.SwitchMore()
                   }}>
-                    <span>陈政闻</span>
+                    <span>{username}</span>
                     <img src={more} alt="" />
                   </div>
                 </div>
@@ -194,8 +217,8 @@ export default class Archives extends Component {
                     </div>
                     <div className="cardContext">
                       <span>
-                        收缩压 144mmhg<br />
-                        舒张压 90mmhg
+                        收缩压 {imei.sdp}mmHg<br />
+                        舒张压 {imei.dbp}mmHg
                       </span>
                     </div>
                   </div>
@@ -208,7 +231,7 @@ export default class Archives extends Component {
                     </div>
                     <div className="cardContext">
                       <span>
-                        空腹 5.7mmol/l
+                        空腹 {imei.bloodSugar}mmol/l
                       </span>
                     </div>
                   </div>
@@ -221,8 +244,7 @@ export default class Archives extends Component {
                     </div>
                     <div className="cardContext">
                       <span>
-                        饱和度 Spo295%<br />
-                        脉搏 80/分
+                        饱和度 Spo{imei.oxygen}%<br />
                       </span>
                     </div>
                   </div>
@@ -235,7 +257,7 @@ export default class Archives extends Component {
                     </div>
                     <div className="cardContext">
                       <span>
-                        心律 78/分
+                        心律 {imei.heartRate}/分
                       </span>
                     </div>
                   </div>
