@@ -1,47 +1,96 @@
 import React, { Component } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
-import { Form, Input, Button, TextArea, ImageUploader } from "antd-mobile";
+import { Form, Input, Button, TextArea, ImageUploader,Toast } from "antd-mobile";
 
 export default class ConflictMediation extends Component {
   state = {
     fileList: [],
   };
+
+  fileList = (newFileList) => {
+    this.setState({ fileList: newFileList });
+  };
+
+  // 返回
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };
-  setFileList(fileList) {
-    this.setState({
-      fileList,
+
+  mockUpload = (file) => {
+    return new Promise((resolve, reject) => {
+      const fd = new FormData();
+      fd.append("file", file);
+      fetch("http://218.0.59.244:10009/prod-api/common/uploadH5", {
+        method: "POST",
+        body: fd,
+      })
+        .then((res) => res.json(res))
+        .then((res) => {
+          if (res.code === 200) {
+            file.url = res.url;
+            file.status = "success";
+            file.message = "上传成功";
+            file.fileName = res.fileName;
+            const newFileList = [...this.state.fileList, file];
+            this.fileList(newFileList);
+            console.log(file);
+            resolve({
+              url: URL.createObjectURL(file),
+            });
+          } else {
+            file.status = "failed";
+            file.message = "上传失败";
+            reject(file);
+          }
+        });
     });
-    console.log(fileList);
-  }
-  mockUpload(file) {
-    return {
-      url: URL.createObjectURL(file),
-    };
-  }
+  };
   onFinish = (e) => {
-    console.log("Success:", e);
-  const userid = JSON.parse(localStorage.getItem("user"));
-
+    const userid = JSON.parse(localStorage.getItem("user"));
+    const picture = this.state.fileList.map((item)=>{
+      return {
+        fileName: item.fileName,
+      }
+    })
     const jsonData = {
-        userId: userid.id,
-        adjustExpect:e.adjustExpect,
-        content:e.content,
-        type:e.type,
-      };
+      userId: userid.id,
+      adjustExpect: e.adjustExpect,
+      content: e.content,
+      type: e.type,
+      picture:JSON.stringify(picture)
+    };
     fetch(
-        "http://218.0.59.244:10009/prod-api/governance/contradiction_adjust/openAdd",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(jsonData),
+      "http://218.0.59.244:10009/prod-api/governance/contradiction_adjust/openAdd",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonData),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "提交失败",
+          });
         }
-      )
-
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
+    console.log(jsonData);
   };
   render() {
     return (
@@ -67,11 +116,7 @@ export default class ConflictMediation extends Component {
                   </Button>
                 }
               >
-                <Form.Item
-                  name="type"
-                  label="矛盾类型"
-                  rules={[{ required: true, message: "姓名不能为空" }]}
-                >
+                <Form.Item name="type" label="矛盾类型">
                   <Input onChange={console.log} placeholder="请输入矛盾类型" />
                 </Form.Item>
                 <Form.Item name="content" label="矛盾详情">
@@ -93,9 +138,8 @@ export default class ConflictMediation extends Component {
                 <Form.Item>
                   <ImageUploader
                     fileList={this.state.fileList}
-                    onChange={this.fileList}
                     upload={this.mockUpload}
-                    maxCount={1}
+                    maxCount={3}
                   />
                 </Form.Item>
               </Form>
