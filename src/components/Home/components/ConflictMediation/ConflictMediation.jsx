@@ -16,7 +16,7 @@ export default class ConflictMediation extends Component {
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };
-
+  //上传图片
   mockUpload = (file) => {
     return new Promise((resolve, reject) => {
       const fd = new FormData();
@@ -46,6 +46,7 @@ export default class ConflictMediation extends Component {
         });
     });
   };
+  //上传数据
   onFinish = (e) => {
     const userid = JSON.parse(localStorage.getItem("user"));
     const picture = this.state.fileList.map((item)=>{

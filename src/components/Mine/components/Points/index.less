@@ -1,48 +1,59 @@
-.index{
+.index {
   width: 100%;
   background-color: #f9f9f9;
   width: 100%;
   display: flex;
- align-items: center;
-  .TopNav{
+  align-items: center;
+  .TopNav {
     height: 50px;
     width: 100%;
     background-color: white;
     display: flex;
     align-items: center;
-    .back{
+    .back {
       position: absolute;
       margin: 0 5px 0;
-        img{
-          width: 20px;
-        }
+      img {
+        width: 20px;
+      }
     }
-    .title{
+    .title {
       font-size: 18px;
-      margin: auto;   
+      margin: auto;
     }
   }
-  .points{
-    width: 90%;
-    height: 15vh;
-    font-size: 18px;
-    color: #333;
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 8px;
-    background-color: white;
-    .score{
+  .points {
+    width: 100%;
+    .mall_list {
       width: 100%;
-      margin-top: 10px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      span{
-        display: block;
-      }
-      span:nth-child(2){
-        font-size: larger;
-        font-weight: bold;
+      flex-wrap: wrap;
+      div {
+        width: 45%;
+        margin: 2.5%;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        img {
+          margin-top: 5px;
+          width: 90%;
+          border-radius: 4px;
+        }
+        .jifen {
+          align-self: flex-start;
+          font-size: medium;
+          color: orangered;
+        }
+        .kucun {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 90%;
+          font-size: small;
+          color: #666;
+        }
       }
     }
   }
