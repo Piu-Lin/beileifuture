@@ -186,6 +186,7 @@ export default class Vote extends Component {
                 </span>
               </div>
             </div>
+import React from 'react'
             <div className="MainContent">
               {this.state.isSelect
                 ? this.state.massage.map((item) => {

@@ -17,14 +17,25 @@ import points from './icon/points.png'
 export default class Mine extends Component {
   state = {
     MineState: 0,
-    username:'用户1'
+    username:'用户1',
+    points:0,
   }
   MineState = (tobe) => {
     this.setState({ MineState: tobe })
   }
+  changePoint = (points) => {
+    this.setState({ points })
+  }
   componentDidMount(){
+    
     const username = JSON.parse(localStorage.getItem('user'))
     this.setState({username:username.name})
+    fetch(
+      `http://218.0.59.244:10009/prod-api/governance/integral_manage/openList?userId=${username.id}`
+    )
+      .then((response) => response.json())
+      .then((data) =>this.setState({ points: data.totalScore }))
+      .catch((error) => console.log(error));
   }
   renderContent() {
     switch (this.state.MineState) {
@@ -38,7 +49,7 @@ export default class Mine extends Component {
                 <div onClick={() => this.MineState(3)}>
                   <img src={points} alt="积分" />
                   <span>积分:</span>
-                  <span>1000</span>
+                  <span>{this.state.points}</span>
                 </div>
               </div>
 
@@ -59,7 +70,7 @@ export default class Mine extends Component {
       case 2:
         return (<My MineState={this.MineState} />)
       case 3:
-        return (<Points MineState={this.MineState} />)
+        return (<Points MineState={this.MineState} points={this.state.points} changePoint={this.changePoint} />)
       case 4: 
         return (<Vote MineState={this.MineState} />)
       case 5: // 问卷调查
