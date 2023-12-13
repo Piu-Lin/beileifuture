@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import backIcon from "../../icon/back.png";
 import { Button } from "antd-mobile";
-import pic from "./pic.png";
 
 import "./index.less";
 export default class Points extends Component {
@@ -22,38 +21,6 @@ export default class Points extends Component {
           "delFlag": 0,
           "deptId": null,
           "userId": null
-      },
-      {
-          "createBy": null,
-          "createTime": "2023-10-16 13:49:13",
-          "updateBy": null,
-          "updateTime": "2023-10-16 16:33:11",
-          "remark": null,
-          "id": 1,
-          "name": "绿皮青团",
-          "useIntegral": "50",
-          "inventory": "87",
-          "changePlace": "倍磊",
-          "picture": "/profile/upload/2023/10/16/青团_20231016163310A002.jpg",
-          "delFlag": 0,
-          "deptId": 100,
-          "userId": 1
-      },
-      {
-          "createBy": null,
-          "createTime": "2023-10-16 13:49:38",
-          "updateBy": null,
-          "updateTime": "2023-10-16 16:33:17",
-          "remark": null,
-          "id": 2,
-          "name": "桑叶糕",
-          "useIntegral": "30",
-          "inventory": "0",
-          "changePlace": "倍磊",
-          "picture": "/profile/upload/2023/10/16/桑叶糕_20231016163316A003.jpg",
-          "delFlag": 0,
-          "deptId": 100,
-          "userId": 1
       }
   ],
   };
