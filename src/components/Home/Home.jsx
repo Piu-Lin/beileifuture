@@ -30,6 +30,9 @@ import QLConvention from './components/QLConvention/QLConvention'
 import QLOpen from './components/QLOpen/QLOpen'
 import Vote from '../Mine/components/Vote/Vote'
 
+import wx from "weixin-js-sdk";
+
+
 
 
 export default class Home extends Component {
@@ -153,11 +156,16 @@ export default class Home extends Component {
       case 3: // 议事管理
         return (<Deliberative SetHomeState={this.SetHomeState} />);
       case 4: // 问卷调查
-        return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
+        // return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
+        wx.miniProgram.navigateTo({
+          url: "/pages/scan/scan",
+        });
+        break;
       case 5: // 红黑榜
         return (<RedAndBlack SetHomeState={this.SetHomeState} />);
       case 6: // 线上投票
         return (<Vote comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />);
+
       case 7: // 矛盾调解
         return (<ConflictMediation SetHomeState={this.SetHomeState} />);
       case 8: // 清廉公约
