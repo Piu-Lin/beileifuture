@@ -20,7 +20,7 @@ export default class BottomNav extends Component {
       justifyContent: 'space-around',
       backgroundColor: '#FFF',
       position: "absolute",
-      bottom: "0px",
+      bottom: "2vh",
       height: '8vh',
       width: '100%',
       
