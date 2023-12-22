@@ -9,7 +9,7 @@ export default class Notification extends Component {
     rows:[]
   }
   init = () => {
-    fetch("http://218.0.59.244:10009/prod-api/governance/information_bulletin/openList")
+    fetch("https://metagis.cc:20256/prod-api/governance/information_bulletin/openList")
       .then((response) => response.json())
       .then((data) => this.setState({ rows: data.rows }))
       .catch((error) => console.log(error));
@@ -39,7 +39,7 @@ export default class Notification extends Component {
                       <div className="title">
                         <span>{item.title}</span>
                       </div>
-                      <div className="content-text" style={{color:item.level==1?"red":"#666"}}>
+                      <div className="content-text" style={{color:item.level===1?"red":"#666"}}>
                         <p>{item.content}</p>
                       </div>
                     </div>

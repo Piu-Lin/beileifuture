@@ -8,7 +8,7 @@ const Login = (props) => {
 
     console.log(e);
     fetch(
-      `http://218.0.59.244:10009/prod-api/basics/population/openList?idCard=${e.idCard}&name=${e.name}`
+      `https://metagis.cc:20256/prod-api/basics/population/openList?idCard=${e.idCard}&name=${e.name}`
     )
       .then((response) => response.json())
       .then((data) => {

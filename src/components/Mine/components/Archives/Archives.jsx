@@ -165,7 +165,7 @@ export default class Archives extends Component {
     this.setState({username:username.name})
 
     fetch(
-        `http://218.0.59.244:10009/prod-api/governance/health_record/openList?userId=${username.id}`
+        `https://metagis.cc:20256/prod-api/governance/health_record/openList?userId=${username.id}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ imei: data.rows[0] }))

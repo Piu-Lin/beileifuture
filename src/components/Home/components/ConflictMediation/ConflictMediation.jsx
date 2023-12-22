@@ -21,7 +21,7 @@ export default class ConflictMediation extends Component {
     return new Promise((resolve, reject) => {
       const fd = new FormData();
       fd.append("file", file);
-      fetch("http://218.0.59.244:10009/prod-api/common/uploadH5", {
+      fetch("https://metagis.cc:20256/prod-api/common/uploadH5", {
         method: "POST",
         body: fd,
       })
@@ -62,7 +62,7 @@ export default class ConflictMediation extends Component {
       picture:JSON.stringify(picture)
     };
     fetch(
-      "http://218.0.59.244:10009/prod-api/governance/contradiction_adjust/openAdd",
+      "https://metagis.cc:20256/prod-api/governance/contradiction_adjust/openAdd",
       {
         method: "POST",
         headers: {

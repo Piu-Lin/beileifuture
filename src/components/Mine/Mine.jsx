@@ -11,7 +11,7 @@ import headImg from './icon/headimg.png'
 import archives from './icon/archives.png'
 import mine from './icon/mine.png'
 import vote from './icon/vote.png'
-import survey from './icon/survey.png'
+// import survey from './icon/survey.png'
 import points from './icon/points.png'
 
 export default class Mine extends Component {
@@ -31,7 +31,7 @@ export default class Mine extends Component {
     const username = JSON.parse(localStorage.getItem('user'))
     this.setState({username:username.name})
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/integral_manage/openList?userId=${username.id}`
+      `https://metagis.cc:20256/prod-api/governance/integral_manage/openList?userId=${username.id}`
     )
       .then((response) => response.json())
       .then((data) =>this.setState({ points: data.totalScore }))
@@ -60,7 +60,7 @@ export default class Mine extends Component {
               <li onClick={() => this.MineState(2)} ><img src={mine} alt="" /><span>个人中心</span></li>
               <li onClick={() => this.MineState(1)}><img src={archives} alt="" /><span>健康档案</span></li>
               <li onClick={() => this.MineState(4)}><img src={vote} alt="" /><span>我的投票</span></li>
-              <li onClick={() => this.MineState(5)}><img src={survey} alt="" /><span>我的问卷</span></li>
+              {/* <li onClick={() => this.MineState(5)}><img src={survey} alt="" /><span>我的问卷</span></li> */}
             </div>
           </div>
         </div>);

@@ -3,7 +3,6 @@ import backIcon from "../../icon/back.png";
 import { Button, Toast } from "antd-mobile";
 
 import "./index.less";
-import { use } from "echarts";
 export default class Points extends Component {
   state = {
     details: 0,
@@ -35,7 +34,7 @@ export default class Points extends Component {
   };
   init = () => {
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/integral_mall/openList`
+      `https://metagis.cc:20256/prod-api/governance/integral_mall/openList`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ mall_list: data.rows }))
@@ -54,7 +53,7 @@ export default class Points extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
 
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/integral_manage/openList?userId=${user.id}`
+      `https://metagis.cc:20256/prod-api/governance/integral_manage/openList?userId=${user.id}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ detailsItem: data.rows }))
@@ -69,7 +68,7 @@ export default class Points extends Component {
         goodId: id,
       };
       fetch(
-        `http://218.0.59.244:10009/prod-api/governance/exchange_order/openAdd`,
+        `https://metagis.cc:20256/prod-api/governance/exchange_order/openAdd`,
         {
           method: "POST",
           headers: {
@@ -141,7 +140,7 @@ export default class Points extends Component {
                     <div>
                       <img
                         src={
-                          "http://218.0.59.244:10009/prod-api" + item.picture
+                          "https://metagis.cc:20256/prod-api" + item.picture
                         }
                         alt="实拍图"
                       />

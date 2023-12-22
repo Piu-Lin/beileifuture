@@ -252,7 +252,7 @@ export const SurveyContext = (props) => {
     };
     console.log(jsonData);
     fetch(
-      "http://218.0.59.244:10009/prod-api/governance/voting_answer/openAdd",
+      "https://metagis.cc:20256/prod-api/governance/voting_answer/openAdd",
       {
         method: "POST",
         headers: {
