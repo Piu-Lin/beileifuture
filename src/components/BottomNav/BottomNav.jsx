@@ -23,6 +23,7 @@ export default class BottomNav extends Component {
       bottom: "2vh",
       height: '8vh',
       width: '100%',
+      zIndex: 100,
       
     }
     const ssBottomNavitem = {

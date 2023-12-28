@@ -20,6 +20,12 @@ import OnlineVote from "./icon/OnlineVote.png";
 import ConflictMediationimg from "./icon/ConflictMediation.png";
 import CorruptionConvention from "./icon/CorruptionConvention.png";
 import CleanAndOpen from "./icon/CleanAndOpen.png";
+
+import dongtai from "./icon/dongtai.png";
+import huodong from "./icon/huodong.png";
+import jiyi from "./icon/jiyi.png";
+import yinling from "./icon/yinling.png";
+
 // import Survey from "../Mine/components/Survey/Survey"
 import Notification from "./components/Notification/Notification";
 import ThreeAffairsOpen from "./components/ThreeAffairsOpen/ThreeAffairsOpen";
@@ -29,6 +35,11 @@ import ConflictMediation from "./components/ConflictMediation/ConflictMediation"
 import QLConvention from "./components/QLConvention/QLConvention";
 import QLOpen from "./components/QLOpen/QLOpen";
 import Vote from "../Mine/components/Vote/Vote";
+
+import Dongtai from "./components/Dongtai/Dongtai";
+import Huodong from "./components/Huodong/Huodong";
+import Jiyi from "./components/Jiyi/Jiyi";
+import Yinling from "./components/Yinling/Yinling";
 
 import wx from "weixin-js-sdk";
 
@@ -112,11 +123,11 @@ export default class Home extends Component {
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
-                    const user = JSON.parse(localStorage.getItem('user'))
+                    const user = JSON.parse(localStorage.getItem("user"));
                     wx.miniProgram.navigateTo({
-                    url: "/pages/scan/scan?userID="+user.id,
-                  });
-              // this.setState({ HomeState: 0 })
+                      url: "/pages/scan/scan?userID=" + user.id,
+                    });
+                    // this.setState({ HomeState: 0 })
                     // this.SetHomeState(4);
                   }}
                   className="homeSubCardItem"
@@ -215,28 +226,57 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-            <div className="HomeNavCard" style={{ display: "none" }}>
-              <div className="HomeNavCardMainTitle">乡村资讯</div>
-              <div className="HomeZiXunItemBox">
-                <img
-                  className="HomeZiXunSuccinctImg"
-                  src="http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg"
-                  alt="资讯图片"
-                />
-                <div className="HomeZiXunItemContentBox">
-                  <div className="HomeZiXunItemContentTitle">老人慰问活动</div>
-                  <div className="HomeZiXunItemContentTime">2023-10-11</div>
+            <div style={{ top: "-5vh" }} className="HomeNavCard">
+              <div className="homeSubCardLine">
+                <div
+                  onClick={() => {
+                    this.SetHomeState(11);
+                  }}
+                  className="homeSubCardItem"
+                >
+                  <img
+                    className="homeSubCardBg"
+                    src={huodong}
+                    alt="InformationBulletins"
+                  />
+                  <div className="homeSubCardLTitle">党群活动</div>
+                </div>
+                <div
+                  onClick={() => {
+                    this.SetHomeState(13);
+                  }}
+                  className="homeSubCardItem"
+                >
+                  <img
+                    className="homeSubCardBg"
+                    src={jiyi}
+                    alt="DeliberativeManagement"
+                  />
+                  <div className="homeSubCardLTitle">党建记忆</div>
                 </div>
               </div>
-              <div className="HomeZiXunItemBox">
-                <img
-                  className="HomeZiXunSuccinctImg"
-                  src="http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg"
-                  alt="资讯图片"
-                />
-                <div className="HomeZiXunItemContentBox">
-                  <div className="HomeZiXunItemContentTitle">阅读活动</div>
-                  <div className="HomeZiXunItemContentTime">2023-10-11</div>
+              <div className="homeSubCardLine">
+                <div
+                   onClick={() => {
+                    this.SetHomeState(10);
+                  }}
+                  className="homeSubCardItem"
+                >
+                  <img
+                    className="homeSubCardBg"
+                    src={dongtai}
+                    alt="Questionnaires"
+                  />
+                  <div className="homeSubCardLTitle">党建动态</div>
+                </div>
+                <div
+                  onClick={() => {
+                    this.SetHomeState(12);
+                  }}
+                  className="homeSubCardItem"
+                >
+                  <img className="homeSubCardBg" src={yinling} alt="RABList" />
+                  <div className="homeSubCardLTitle">党建引领</div>
                 </div>
               </div>
             </div>
@@ -269,6 +309,14 @@ export default class Home extends Component {
         return <QLConvention SetHomeState={this.SetHomeState} />;
       case 9: // 清廉公开
         return <QLOpen SetHomeState={this.SetHomeState} />;
+      case 10: // 动态
+        return <Dongtai SetHomeState={this.SetHomeState} />;
+      case 11: // 活动
+        return <Huodong SetHomeState={this.SetHomeState} />;
+      case 12: // 引领
+        return <Yinling SetHomeState={this.SetHomeState} />;
+      case 13: // 记忆
+        return <Jiyi SetHomeState={this.SetHomeState} />;
       default:
         return <></>;
     }

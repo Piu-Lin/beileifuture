@@ -60,7 +60,7 @@ export default class Mine extends Component {
               <li onClick={() => this.MineState(2)} ><img src={mine} alt="" /><span>个人中心</span></li>
               <li onClick={() => this.MineState(1)}><img src={archives} alt="" /><span>健康档案</span></li>
               <li onClick={() => this.MineState(4)}><img src={vote} alt="" /><span>我的投票</span></li>
-              {/* <li onClick={() => this.MineState(5)}><img src={survey} alt="" /><span>我的问卷</span></li> */}
+              <li onClick={() => this.MineState(3)}><img src={points} alt="" /><span>我的积分</span></li>
             </div>
           </div>
         </div>);
