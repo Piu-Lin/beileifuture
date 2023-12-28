@@ -1,26 +1,32 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
-import { TextArea, Dialog } from "antd-mobile";
+import { TextArea, Dialog, Button,Toast } from "antd-mobile";
+import { use } from "echarts";
 export function ContentDetail(props) {
   const [isPopMessage, setIsPopMessage] = useState(false);
   const [Itemlist, setItemlist] = useState([]);
+  const [text, setText] = useState("");
 
   const handleClick = () => {
     props.click(0);
   };
+
   const changePop = () => {
     setIsPopMessage(!isPopMessage);
   };
+
   const onFinish = (value) => {
     Dialog.alert({
       content: value,
     });
   };
-  useEffect(()=>{
-    console.log('组件根据依赖参数props更新调用');
-    getcomment()
- },[props])
+
+  useEffect(() => {
+    console.log("组件根据依赖参数props更新调用");
+    getcomment();
+  }, [props]);
+
   const getcomment = () => {
     const { tableType } = props.value;
     fetch(
@@ -28,10 +34,57 @@ export function ContentDetail(props) {
         tableType
     )
       .then((response) => response.json())
-      .then((data) => {setItemlist(data.rows)})
+      .then((data) => {
+        setItemlist(data.rows);
+      })
       .catch((error) => console.log(error));
   };
-  const { content, img, title, date } = props.value;
+
+  const postCommit = () => {
+    const { tableType, id } = props.value;
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const formdata = {
+      populationId: user.id,
+      neighbourhoodId: id,
+      tableType: tableType,
+      commonContent: text,
+    };
+    fetch(
+      "https://metagis.cc:20256/prod-api/neighbourhood/comment",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+          getcomment()
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "提交失败",
+          });
+        }
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
+    console.log(formdata);
+  };
+
+  const { content, title, date } = props.value;
   return (
     <div>
       <div className="index">
@@ -91,12 +144,25 @@ export function ContentDetail(props) {
               </div>
               {isPopMessage ? (
                 <>
-                  <TextArea className="textarea" autoFocus={true} rows={3} />
+                  <TextArea
+                    className="textarea"
+                    autoFocus={true}
+                    rows={3}
+                    onChange={(e) => setText(e)}
+                  />
+                  <Button
+                    size="mini"
+                    style={{ margin: "5px" }}
+                    color="primary"
+                    onClick={() => postCommit()}
+                  >
+                    发表
+                  </Button>
                 </>
               ) : (
                 <></>
               )}
-              {Itemlist.values.length === 0? (
+              {Itemlist.values.length === 0 ? (
                 <>
                   {Itemlist.map((item, index) => {
                     return (

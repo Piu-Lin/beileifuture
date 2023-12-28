@@ -33,7 +33,8 @@ export default class Deliberative extends Component {
             content: value.conventionContent?value.conventionContent:'',
             title: "",
             date: value.createTime,
-            tableType:2
+            tableType:2,
+            id
           },
         });
         console.log(data);

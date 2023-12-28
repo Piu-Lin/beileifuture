@@ -23,19 +23,27 @@ export default class NgbActivity extends Component {
           "在这个信息爆炸的时代，我们常常被各种asdsa sdasd adasdsa撒旦  ",
         date: "2023年10月18日",
       },
-
     ],
     isDetailed: false,
-    details:{},
+    details: {},
   };
   chanegDetailed = (id) => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/activity/"+id)
-    .then((response) => response.json())
-    .then((data) => { const value = data.data; this.setState({ details: {content:value.trainContent,title:value.trainPlace,date:value.createTime,tableType:3} }) 
-    console.log(data)  
-  })
-    .catch((error) => console.log(error))
-
+    fetch("https://metagis.cc:20256/prod-api/neighbourhood/activity/" + id)
+      .then((response) => response.json())
+      .then((data) => {
+        const value = data.data;
+        this.setState({
+          details: {
+            content: value.trainContent,
+            title: value.trainPlace,
+            date: value.createTime,
+            tableType:3,
+            id,
+          },
+        });
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
 
     this.setState({
       isDetailed: !this.state.isDetailed,
@@ -47,7 +55,7 @@ export default class NgbActivity extends Component {
       .then((data) => this.setState({ items: data.rows }))
       .catch((error) => console.log(error));
   };
-  componentDidMount(){
+  componentDidMount() {
     this.init();
   }
   render() {
@@ -55,7 +63,10 @@ export default class NgbActivity extends Component {
     return (
       <>
         {isDetailed ? (
-          <ContentDetail click={this.chanegDetailed}  value={this.state.details} />
+          <ContentDetail
+            click={this.chanegDetailed}
+            value={this.state.details}
+          />
         ) : (
           <>
             <div className="index">
@@ -63,7 +74,7 @@ export default class NgbActivity extends Component {
                 <div
                   className="back"
                   onClick={() => {
-                   this.BackToHomeNav();
+                    this.BackToHomeNav();
                   }}
                 >
                   <img src={BackIcon} alt="返回" />
@@ -76,14 +87,29 @@ export default class NgbActivity extends Component {
                 {this.state.items.map((element, i) => {
                   return (
                     <>
-                      <div className="item" key={i} onClick={() => this.chanegDetailed(element.id)}>
+                      <div
+                        className="item"
+                        key={i}
+                        onClick={() => this.chanegDetailed(element.id)}
+                      >
                         <div>
-                          <img src={'https://metagis.cc:20256/prod-api/'+element.image} alt="图片" />
+                          <img
+                            src={
+                              "https://metagis.cc:20256/prod-api/" +
+                              element.image
+                            }
+                            alt="图片"
+                          />
                         </div>
                         <div>
                           <span className="title">{element.trainPlace}</span>
-                          <span className="content">{element.trainContent}</span>
-                          <span className="date">{element.createTime && element.createTime.split(" ")[0]}</span>
+                          <span className="content">
+                            {element.trainContent}
+                          </span>
+                          <span className="date">
+                            {element.createTime &&
+                              element.createTime.split(" ")[0]}
+                          </span>
                         </div>
                       </div>
                     </>

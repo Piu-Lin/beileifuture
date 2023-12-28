@@ -66,7 +66,8 @@ export default class Neighbourhood extends Component {
             content: value.cultureContent,
             title: value.trainPlace,
             date: value.createTime,
-            tableType:4
+            tableType:4,
+            id
 
           },
         });
