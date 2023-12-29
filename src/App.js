@@ -27,7 +27,8 @@ import React, { Component } from 'react'
 export default class App extends Component {
   state = {
     BottomNavState: 4,
-    isLogin: false
+    isLogin: false,
+    id:0
   }
   BottomNavStateSwich = (tobe) => {
     this.setState({ BottomNavState: tobe })
@@ -40,7 +41,8 @@ export default class App extends Component {
    const url = window.location.search;
    console.log(url)
    if(url){
-      this.setState({BottomNavState:3})
+      const params = url.split('=')[1]
+      this.setState({BottomNavState:3,id:params})
    }
 
   }
@@ -54,7 +56,7 @@ export default class App extends Component {
       case 2:
         return (<Neighbourhood />)
       case 3:
-        return (<DataFrom formId={6} />)
+        return (<DataFrom formId={this.state.id} isShow={true} />)
 
       default:
         return (<Login login={this.login} />)
