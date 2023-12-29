@@ -9,6 +9,8 @@
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
  */
 import React, { Component } from "react";
+
+
 import "./Home.less";
 import Hero from "./Hero.jpeg";
 import InformationBulletins from "./icon/InformationBulletins.png";
@@ -26,7 +28,7 @@ import huodong from "./icon/huodong.png";
 import jiyi from "./icon/jiyi.png";
 import yinling from "./icon/yinling.png";
 
-// import Survey from "../Mine/components/Survey/Survey"
+import Survey from "../Mine/components/Survey/Survey"
 import Notification from "./components/Notification/Notification";
 import ThreeAffairsOpen from "./components/ThreeAffairsOpen/ThreeAffairsOpen";
 import Deliberative from "./components/Deliberative/Deliberative";
@@ -41,9 +43,11 @@ import Huodong from "./components/Huodong/Huodong";
 import Jiyi from "./components/Jiyi/Jiyi";
 import Yinling from "./components/Yinling/Yinling";
 
-import wx from "weixin-js-sdk";
+// import wx from "weixin-js-sdk";
 
 export default class Home extends Component {
+
+
   state = {
     /** 乡村资讯 */
     villageInformation: [
@@ -123,12 +127,12 @@ export default class Home extends Component {
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
-                    const user = JSON.parse(localStorage.getItem("user"));
-                    wx.miniProgram.navigateTo({
-                      url: "/pages/scan/scan?userID=" + user.id,
-                    });
-                    // this.setState({ HomeState: 0 })
-                    // this.SetHomeState(4);
+                    // const user = JSON.parse(localStorage.getItem("user"));
+                    // wx.miniProgram.navigateTo({
+                    //   url: "/pages/scan/scan?userID=" + user.id,
+                    // });
+                    this.setState({ HomeState: 0 })
+                    this.SetHomeState(4);
                   }}
                   className="homeSubCardItem"
                 >
@@ -289,7 +293,7 @@ export default class Home extends Component {
       case 3: // 议事管理
         return <Deliberative SetHomeState={this.SetHomeState} />;
       case 4: // 问卷调查
-        // return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
+        return (<Survey comefrom="1" MineState={()=>{}} SetHomeState={this.SetHomeState} />)
 
         break;
       case 5: // 红黑榜

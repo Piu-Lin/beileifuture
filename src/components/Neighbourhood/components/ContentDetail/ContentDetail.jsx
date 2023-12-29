@@ -17,6 +17,7 @@ export function ContentDetail(props) {
   };
 
   const onFinish = (value) => {
+    // postqiandao()
     Dialog.alert({
       content: value,
     });
@@ -25,7 +26,7 @@ export function ContentDetail(props) {
   useEffect(() => {
     console.log("组件根据依赖参数props更新调用");
     getcomment();
-  }, [props]);
+  }, [props.value]);
 
   const getcomment = () => {
     const { tableType } = props.value;
@@ -39,6 +40,94 @@ export function ContentDetail(props) {
       })
       .catch((error) => console.log(error));
   };
+  const postShoucan = () => {
+    const { tableType, id } = props.value;
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const formdata = {
+      populationId: user.id,
+      neighbourhoodId: id,
+      tableType: tableType,
+      commonContent: text,
+      isSignature: 1,
+    };
+    fetch(
+      "https://metagis.cc:20256/prod-api/neighbourhood/collect",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+          getcomment()
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "已收藏",
+          });
+        }
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
+    console.log(formdata);
+  }
+  const postqiandao = () => {
+    const { tableType, id } = props.value;
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const formdata = {
+      populationId: user.id,
+      neighbourhoodId: id,
+      tableType: tableType,
+      commonContent: text,
+      isSignature: 1,
+    };
+    fetch(
+      "https://metagis.cc:20256/prod-api/neighbourhood/signature",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+          getcomment()
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "已签到",
+          });
+        }
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
+    console.log(formdata);
+  }
 
   const postCommit = () => {
     const { tableType, id } = props.value;
@@ -109,7 +198,7 @@ export function ContentDetail(props) {
             <div className="toolbar">
               <div
                 className="toolbar-item"
-                onClick={() => onFinish("点赞成功")}
+                onClick={() => onFinish("签到成功")}
               >
                 <svg className="cardicon" aria-hidden="true">
                   <use xlinkHref="#icon-z-like"></use>
@@ -118,7 +207,7 @@ export function ContentDetail(props) {
               </div>
               <div
                 className="toolbar-item"
-                onClick={() => onFinish("收藏成功")}
+                onClick={() => postShoucan()}
               >
                 <svg className="cardicon" aria-hidden="true">
                   <use xlinkHref="#icon-shoucang"></use>
@@ -127,7 +216,7 @@ export function ContentDetail(props) {
               </div>
               <div
                 className="toolbar-item"
-                onClick={() => onFinish("签到成功")}
+                onClick={() => postqiandao()}
               >
                 <svg className="cardicon" aria-hidden="true">
                   <use xlinkHref="#icon-pinglun"></use>

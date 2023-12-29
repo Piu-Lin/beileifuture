@@ -12,20 +12,14 @@ import React, { Component, useState } from "react";
 import backIcon from "../../icon/back.png";
 import "./index.less";
 import wx from "weixin-js-sdk";
-import {
-  Form,
-  Input,
-  Button,
-  Dialog,
-  Space,
-  Radio,
-  Checkbox,
-} from "antd-mobile";
+
+import { DataFrom } from "./DataFrom/DataFrom";
 
 export default class Survey extends Component {
   state = {
     isSelect: true,
     isSurveyContext: true,
+    formid:0,
     massage: [
       {
         id: 1,
@@ -34,17 +28,24 @@ export default class Survey extends Component {
         context: "你对村委会选举的参与度如何？请分享你的观点和想法。",
       },
     ],
-    historyMassage: [
-      {
-        id: 1,
-        date: "2023年09月28日",
-        title: "关于村委会选举的问卷",
-        context: "你对村委会选举的参与度如何？请分享你的观点和想法。",
-      },
-    ],
     wenjuanJson: {
       title: "",
     },
+  };
+  getdata = (flag) => {
+    if(flag){
+      flag=1
+    }
+    else{
+      flag=0
+    }
+    const username = JSON.parse(localStorage.getItem("user"));
+    fetch(
+      `http://218.0.59.244:10009/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setState({ massage: data.rows }))
+      .catch((error) => console.log(error));
   };
   BackTo0 = () => {
     this.props.MineState(0);
@@ -56,15 +57,22 @@ export default class Survey extends Component {
     this.setState({
       isSelect: !this.state.isSelect,
     });
+    this.getdata(this.state.isSelect)
+
   };
   switchSurvey = (value) => {
     this.setState({
       isSurveyContext: !this.state.isSurveyContext,
-      wenjuanJson: value,
+      formid: value,
     });
   };
+
+
+  init = () => {
+    this.getdata(!this.state.isSelect);
+  };
   componentDidMount() {
-    
+    this.init();
   }
   render() {
     return (
@@ -118,47 +126,50 @@ export default class Survey extends Component {
               </div>
             </div>
             <div className="MainContent">
-              {this.state.isSelect
-                ? this.state.massage.map((item) => {
-                    return (
-                      <div
-                        key={item.id}
-                        className="MessageCard"
-                        onClick={() => this.switchSurvey(item.title)}
-                      >
-                        <div>
-                          <span>{item.date}</span>
-                        </div>
-                        <div>
-                          <span>{item.title}</span>
-                          <span>{item.context}</span>
-                        </div>
+              {
+                this.state.massage.map((item) => {
+                  return (
+                    <div
+                      key={item.id}
+                      className="MessageCard"
+                      onClick={() => this.switchSurvey(item.id)}
+                    >
+                      <div>
+                        <span>
+                          {item.createTime && item.createTime.split(" ")[0]}
+                        </span>
                       </div>
-                    );
-                  })
-                : this.state.historyMassage.map((item) => {
-                    return (
-                      <div
-                        key={item.id}
-                        className="MessageCard"
-                        onClick={() => this.switchSurvey(item.title)}
-                      >
-                        <div>
-                          <span>{item.date}</span>
-                        </div>
-                        <div>
-                          <span>{item.title}</span>
-                          <span>{item.context}</span>
-                        </div>
+                      <div>
+                        <span>{item.name}</span>
+                        {/* <span>{item.context}</span> */}
                       </div>
-                    );
-                  })}
+                    </div>
+                  );
+                })
+                // : this.state.historyMassage.map((item) => {
+                //     return (
+                //       <div
+                //         key={item.id}
+                //         className="MessageCard"
+                //         onClick={() => this.switchSurvey(item.title)}
+                //       >
+                //         <div>
+                //           <span>{item.createTime && item.createTime.split(" ")[0]}</span>
+                //         </div>
+                //         <div>
+                //           <span>{item.name}</span>
+                //           <span>{item.context}</span>
+                //         </div>
+                //       </div>
+                //     );
+                //   })}
+              }
             </div>
           </>
         ) : (
           <div className="SurveyContext">
             {" "}
-            <YourForm></YourForm>
+            <DataFrom formId={this.state.formid}></DataFrom>
           </div>
         )}
       </div>
@@ -279,106 +290,106 @@ export default class Survey extends Component {
 //   )
 // }
 
-const YourForm = () => {
-  const formData = [
-    {
-      type: "input",
-      field: "Far9615pf3x5n",
-      title: "姓名",
-      info: "",
-      $required: true,
-      _fc_drag_tag: "input",
-      hidden: false,
-      display: true,
-    },
-    {
-      type: "radio",
-      field: "F256615pf5im2",
-      title: "性别",
-      info: "",
-      effect: {
-        fetch: "",
-      },
-      $required: true,
-      options: [
-        { label: "男", value: 1 },
-        { label: "女", value: 2 },
-      ],
-      _fc_drag_tag: "radio",
-      hidden: false,
-      display: true,
-    },
-    {
-      type: "checkbox",
-      field: "Fnwo615pf8zyn",
-      title: "多选框",
-      info: "",
-      effect: {
-        fetch: "",
-      },
-      $required: true,
-      options: [
-        { label: "篮球", value: 1 },
-        { label: "足球", value: 2 },
-        { label: "排球", value: "3" },
-      ],
-      _fc_drag_tag: "checkbox",
-      hidden: false,
-      display: true,
-    },
-  ];
-
-  const [formValues, setFormValues] = useState({});
-
-  const handleInputChange = (field, value) => {
-    setFormValues((prevValues) => ({ ...prevValues, [field]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted with values:", formValues);
-  };
-
-  return (
-    <Form
-      layout="horizontal"
-      footer={
-        <Button block type="submit" color="primary" size="large">
-          提交
-        </Button>
-      }
-    >
-      {formData.map((item) => (
-        <div key={item.field} style={{ margin: "10px 0" }}>
-          {item.type === "input" && (
-            <Form.Item name="name" label={item.title}>
-              <Input onChange={console.log} placeholder="请输入姓名" />
-            </Form.Item>
-          )}
-          {item.type === "radio" && (
-            <>
-              <Form.Item name="Radio" label={item.title}>
-                <Radio.Group>
-                  {item.options.map((option) => (
-                    <Radio value={option.value}>{option.label}</Radio>
-                  ))}
-                </Radio.Group>
-              </Form.Item>
-            </>
-          )}
-          {item.type === "checkbox" && (
-            <>
-              <Form.Item name="checkbox" label={item.title}>
-                <Checkbox.Group>
-                  {item.options.map((option) => (
-                    <Checkbox value={option.value}>{option.label}</Checkbox>
-                  ))}
-                </Checkbox.Group>
-              </Form.Item>
-            </>
-          )}
-        </div>
-      ))}
-    </Form>
-  );
-};
+// const YourForm = () => {
+//   const formData = [
+//     {
+//       type: "input",
+//       field: "Far9615pf3x5n",
+//       title: "姓名",
+//       info: "",
+//       $required: true,
+//       _fc_drag_tag: "input",
+//       hidden: false,
+//       display: true,
+//     },
+//     {
+//       type: "radio",
+//       field: "F256615pf5im2",
+//       title: "性别",
+//       info: "",
+//       effect: {
+//         fetch: "",
+//       },
+//       $required: true,
+//       options: [
+//         { label: "男", value: 1 },
+//         { label: "女", value: 2 },
+//       ],
+//       _fc_drag_tag: "radio",
+//       hidden: false,
+//       display: true,
+//     },
+//     {
+//       type: "checkbox",
+//       field: "Fnwo615pf8zyn",
+//       title: "多选框",
+//       info: "",
+//       effect: {
+//         fetch: "",
+//       },
+//       $required: true,
+//       options: [
+//         { label: "篮球", value: 1 },
+//         { label: "足球", value: 2 },
+//         { label: "排球", value: "3" },
+//       ],
+//       _fc_drag_tag: "checkbox",
+//       hidden: false,
+//       display: true,
+//     },
+//   ];
+//
+//   const [formValues, setFormValues] = useState({});
+//
+//   const handleInputChange = (field, value) => {
+//     setFormValues((prevValues) => ({ ...prevValues, [field]: value }));
+//   };
+//
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log("Form submitted with values:", formValues);
+//   };
+//
+//   return (
+//     <Form
+//       layout="horizontal"
+//       footer={
+//         <Button block type="submit" color="primary" size="large">
+//           提交
+//         </Button>
+//       }
+//     >
+//       {formData.map((item) => (
+//         <div key={item.field} style={{ margin: "10px 0" }}>
+//           {item.type === "input" && (
+//             <Form.Item name="name" label={item.title}>
+//               <Input onChange={console.log} placeholder="请输入姓名" />
+//             </Form.Item>
+//           )}
+//           {item.type === "radio" && (
+//             <>
+//               <Form.Item name="Radio" label={item.title}>
+//                 <Radio.Group>
+//                   {item.options.map((option) => (
+//                     <Radio value={option.value}>{option.label}</Radio>
+//                   ))}
+//                 </Radio.Group>
+//               </Form.Item>
+//             </>
+//           )}
+//           {item.type === "checkbox" && (
+//             <>
+//               <Form.Item name="checkbox" label={item.title}>
+//                 <Checkbox.Group>
+//                   {item.options.map((option) => (
+//                     <Checkbox value={option.value}>{option.label}</Checkbox>
+//                   ))}
+//                 </Checkbox.Group>
+//               </Form.Item>
+//             </>
+//           )}
+//         </div>
+//       ))}
+//     </Form>
+//   );
+// };

@@ -14,12 +14,19 @@ import Mine from "./components/Mine/Mine.jsx"
 import Neighbourhood from "./components/Neighbourhood/Neighbourhood.jsx"
 import Login from './components/Login/index.jsx'
 
+import { DataFrom } from "./components/Mine/components/Survey/DataFrom/DataFrom.jsx"
+
+
+
 import './App.less';
 import React, { Component } from 'react'
 
+
+
+
 export default class App extends Component {
   state = {
-    BottomNavState: 3,
+    BottomNavState: 4,
     isLogin: false
   }
   BottomNavStateSwich = (tobe) => {
@@ -28,6 +35,14 @@ export default class App extends Component {
 
   login = () => {
     this.setState({ isLogin: true,BottomNavState: 0 })
+  }
+  componentDidMount(){
+   const url = window.location.search;
+   console.log(url)
+   if(url){
+      this.setState({BottomNavState:3})
+   }
+
   }
 
   renderContent = () => {
@@ -38,6 +53,8 @@ export default class App extends Component {
         return (<Mine />)
       case 2:
         return (<Neighbourhood />)
+      case 3:
+        return (<DataFrom formId={6} />)
 
       default:
         return (<Login login={this.login} />)
