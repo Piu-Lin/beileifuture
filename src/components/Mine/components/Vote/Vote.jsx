@@ -24,70 +24,6 @@ export default class Vote extends Component {
         title: "选举村委会的投票",
         context: "张九主任",
       },
-
-      {
-        id: 2,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "张美华主任",
-      },
-
-      {
-        id: 3,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "王志强主任",
-      },
-
-      {
-        id: 4,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "李华明主任",
-      },
-
-      {
-        id: 5,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "陈小红主任",
-      },
-
-      {
-        id: 6,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "刘建国主任",
-      },
-
-      {
-        id: 7,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "赵丽娟主任",
-      },
-
-      {
-        id: 8,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "黄明亮主任",
-      },
-    ],
-    historyMassage: [
-      {
-        id: 9,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "许文娟主任",
-      },
-
-      {
-        id: 10,
-        date: "2023年10月12日",
-        title: "选举村委会的投票",
-        context: "冯伟强主任",
-      },
     ],
     wenjuanJson: {
       title: "",
@@ -112,17 +48,18 @@ export default class Vote extends Component {
       endorse:endorse?endorse:0,
       oppose:oppose?oppose:0,
     });
+    this.init()
   };
   init = () => {
     const userid = JSON.parse(localStorage.getItem("user"));
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=0`
+      `https://metagis.cc:20256/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=0`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))
       .catch((error) => console.log(error));
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=1`
+      `https://metagis.cc:20256/prod-api/governance/online_voting/openList?userId=${userid.id}&flag=1`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ historyMassage: data.rows }))

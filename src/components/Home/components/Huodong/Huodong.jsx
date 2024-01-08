@@ -92,7 +92,13 @@ export const QLOpenDeilt = (props) => {
         }}
         title={props.value.trainPlace}
       >
-        {props.value.trainContent}
+        {}
+        <div>{props.value.trainContent}</div>
+
+        <img style={{width: "100%"}} src={"https://metagis.cc:20256/prod-api"+props.value.image} alt="图片" />
+
+
+
         <div style={{ width: "100%", textAlign: "end", marginTop: "20px" }}>
           <span>{props.value.trainTime}</span>
         </div>

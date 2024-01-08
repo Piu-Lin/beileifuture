@@ -41,7 +41,7 @@ export default class Survey extends Component {
     }
     const username = JSON.parse(localStorage.getItem("user"));
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}`
+      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))

@@ -1,40 +1,40 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
 import { Card } from "antd-mobile";
-export default class Deliberative extends Component {
+
+// import { ContentDetail } from "../ContentDetail/ContentDetail";
+
+export default class NgbActivity extends Component {
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };
   state = {
-    isDetailed: false,
+    items: [
 
-    Meeting_Information: [
     ],
-
-    value: {
-      theme: "清洁村庄计划评估",
-      participant: "林二十一、韦二十二",
-      meetingTime: "2023-11-25",
-    },
+    isDetailed: false,
+    details: {},
+    id:0,
   };
-  chanegDetailed = () => {
+  chanegDetailed = (id) => {
+    this.setState({id})
+
     this.setState({
       isDetailed: !this.state.isDetailed,
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/service/memberActivity/list")
+    fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/list")
       .then((response) => response.json())
-      .then((data) => this.setState({ Meeting_Information: data.rows }))
+      .then((data) => this.setState({ items: data.rows }))
       .catch((error) => console.log(error));
   };
-  componentDidMount(){
+  componentDidMount() {
     this.init();
   }
   render() {
-    const { Meeting_Information, isDetailed, value } = this.state;
-
+    const { isDetailed } = this.state;
     return (
       <>
         <div className="index">
@@ -48,34 +48,45 @@ export default class Deliberative extends Component {
               <img src={BackIcon} alt="返回" />
             </div>
             <div className="title">
-              <span>党员动态</span>
+              <span>党建动态</span>
             </div>
           </div>
           <div className="Archives">
             {isDetailed ? (
-              <QLOpenDeilt value={value} />
+              <>
+                <QLOpenDeilt id={this.state.id}></QLOpenDeilt>
+              </>
             ) : (
-              Meeting_Information.map((item, i) => {
+              this.state.items.map((element, i) => {
                 return (
-                  <li
-                    className="QLopenLi"
-                    key={i}
-                    onClick={() => {
-                      this.chanegDetailed();
-                      this.setState({
-                        value: item,
-                      });
-                    }}
-                  >
-                    <span></span>
-
-                    <span>{item.trainContent}</span>
-
-                    <span>{item.trainTime}</span>
-                  </li>
+                  <>
+                    <div
+                      className="item"
+                      key={i}
+                      onClick={() => this.chanegDetailed(element.id)}
+                    >
+                      <div>
+                        <img
+                          src={
+                            "https://metagis.cc:20256/prod-api/" + element.image
+                          }
+                          alt="图片"
+                        />
+                      </div>
+                      <div>
+                        <span className="title">{element.title}</span>
+                        <span className="content">{element.content}</span>
+                        <span className="date">
+                          {element.createTime &&
+                            element.createTime.split(" ")[0]}
+                        </span>
+                      </div>
+                    </div>
+                  </>
                 );
               })
             )}
+            {}
           </div>
         </div>
       </>
@@ -84,20 +95,41 @@ export default class Deliberative extends Component {
 }
 
 export const QLOpenDeilt = (props) => {
+  const [item, setItem] = useState({
+    id: 1,
+    time: "2023-12-29",
+    content: "党建动态内容",
+    place: "党建动态地点",
+    image: "/profile/upload/2023/12/29/右上角_20231229150950A001.png",
+    title: "党建动态标题",
+    delFlag: 0,
+  });
+  //
+    useEffect(()=>{
+      fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/"+props.id)
+        .then((response) => response.json())
+        .then((data) => setItem(data.data))
+        .catch((error) => console.log(error));
+    },[props.id])
+
   return (
     <div>
       <Card
         headerStyle={{
           color: "rgb(105, 199, 236)",
         }}
-        title={props.value.trainPlace}
+        title={item.title}
       >
-        {props.value.trainContent}
+        {
+          <div>{item.content}</div>
+        }
+        <img style={{width: "100%"}} src={"https://metagis.cc:20256/prod-api/"+item.image} alt="图片" />
+        
         <div style={{ width: "100%", textAlign: "end", marginTop: "20px" }}>
-          <span>{props.value.trainTime}</span>
+          <span>{item.time}</span>
         </div>
         <div style={{ width: "100%", textAlign: "end" }}>
-          <span>{props.value.Issuing_Department}</span>
+          <span>{item.place}</span>
         </div>
       </Card>
     </div>

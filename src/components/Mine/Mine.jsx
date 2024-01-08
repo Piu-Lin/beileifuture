@@ -11,7 +11,6 @@ import headImg from './icon/headimg.png'
 import archives from './icon/archives.png'
 import mine from './icon/mine.png'
 import vote from './icon/vote.png'
-// import survey from './icon/survey.png'
 import points from './icon/points.png'
 
 export default class Mine extends Component {
@@ -64,22 +63,18 @@ export default class Mine extends Component {
             </div>
           </div>
         </div>);
-      // 添加 break 关键字
       case 1:
         return (<Archives MineState={this.MineState} />)
-      case 2:
+      case 2: //我的
         return (<My MineState={this.MineState} />)
-      case 3:
+      case 3: //积分
         return (<Points MineState={this.MineState} points={this.state.points} changePoint={this.changePoint} />)
-      case 4: 
+      case 4: // 投票
         return (<Vote MineState={this.MineState} />)
       case 5: // 问卷调查
         return (<Survey MineState={this.MineState} />)
-
-
       default:
-        // 执行默认的逻辑
-        return null;
+        return <><div>暂无内容</div></>;
     }
   }
   render() {

@@ -86,7 +86,7 @@ export const DataFrom = (props) => {
 
     console.log(url)
     fetch(
-      `http://218.0.59.244:10009/prod-api/governance/questionnaire_survey/openGetInfo/${props.formId}`
+      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openGetInfo/${props.formId}`
     )
       .then((response) => response.json())
       .then((data) => {
