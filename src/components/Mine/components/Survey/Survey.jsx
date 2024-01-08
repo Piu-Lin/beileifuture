@@ -8,10 +8,9 @@
  *
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
  */
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import backIcon from "../../icon/back.png";
 import "./index.less";
-import wx from "weixin-js-sdk";
 
 import { DataFrom } from "./DataFrom/DataFrom";
 
@@ -41,7 +40,7 @@ export default class Survey extends Component {
     }
     const username = JSON.parse(localStorage.getItem("user"));
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}`
+      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}&grid=4`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))

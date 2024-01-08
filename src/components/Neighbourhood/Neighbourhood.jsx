@@ -90,7 +90,7 @@ export default class Neighbourhood extends Component {
               alt="hero"
             />
             <div style={{ top: "-5vh" }} className="HomeNavCard">
-              <div id="emergencyMessage">
+              <div id="emergencyMessage2">
                 <img
                   onClick={() => {
                     this.SetHomeState(1);
