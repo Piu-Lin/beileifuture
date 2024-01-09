@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
-import { Card } from "antd-mobile";
+import { Card, TextArea, Button, Toast } from "antd-mobile";
 export default class Deliberative extends Component {
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
@@ -9,8 +10,8 @@ export default class Deliberative extends Component {
   state = {
     isDetailed: false,
 
-    Meeting_Information: [
-    ],
+    isSelect: true,
+    Meeting_Information: [],
 
     value: {
       theme: "清洁村庄计划评估",
@@ -23,13 +24,35 @@ export default class Deliberative extends Component {
       isDetailed: !this.state.isDetailed,
     });
   };
-  init = () => {
-    fetch("https://metagis.cc:20256/prod-api/governance/discussion_managementr/openList")
+  selected = () => {
+    if (this.state.isSelect) {
+      this.setState({
+        isSelect: false,
+      });
+      this.getvalue(1);
+    } else {
+      this.setState({
+        isSelect: true,
+      });
+      this.getvalue(0);
+    }
+  };
+
+  getvalue = (flag) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    fetch(
+      `https://metagis.cc:20256/prod-api/governance/discussion_managementr/openList?userId=${user.id}&flag=${flag}`
+    )
       .then((response) => response.json())
       .then((data) => this.setState({ Meeting_Information: data.rows }))
       .catch((error) => console.log(error));
   };
-  componentDidMount(){
+
+  init = () => {
+    this.getvalue(0);
+  };
+  componentDidMount() {
     this.init();
   }
   render() {
@@ -49,6 +72,28 @@ export default class Deliberative extends Component {
             </div>
             <div className="title">
               <span>议事管理</span>
+            </div>
+          </div>
+          <div
+            style={{ width: "100%", display: isDetailed ? "none" : "block" }}
+          >
+            <div className="switchTag">
+              <div>
+                <span
+                  onClick={() => this.selected()}
+                  className={this.state.isSelect ? "tagSelected" : ""}
+                >
+                  未回答
+                </span>
+              </div>
+              <div>
+                <span
+                  onClick={() => this.selected()}
+                  className={this.state.isSelect ? "" : "tagSelected"}
+                >
+                  已回答
+                </span>
+              </div>
             </div>
           </div>
           <div className="Archives">
@@ -83,7 +128,55 @@ export default class Deliberative extends Component {
   }
 }
 
+//详细
 export const QLOpenDeilt = (props) => {
+  const [text, setText] = useState("");
+  const submit = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(!text) {
+      Toast.show({
+        icon: "fail",
+        content: "请填写内容",
+      });
+      return;
+    }
+    const formdata = {
+      discussionId: props.value.id,
+      userId: user.id,
+      answer: text,
+    };
+    fetch(
+      "https://metagis.cc:20256/prod-api/governance/discussion_answer/openAdd",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          Toast.show({
+            icon: "success",
+            content: "提交成功",
+          });
+        } else {
+          Toast.show({
+            icon: "fail",
+            content: "失败",
+          });
+        }
+      })
+      .catch((error) => {
+        Toast.show({
+          icon: "fail",
+          content: "请检查网络",
+        });
+      });
+  };
   return (
     <div>
       <Card
@@ -100,6 +193,31 @@ export const QLOpenDeilt = (props) => {
           <span>{props.value.Issuing_Department}</span>
         </div>
       </Card>
+      {props.value.answer ? (
+        <>
+          <div>{props.value.answer}</div>
+        </>
+      ) : (
+        <>
+          <div className="pinglun">
+            <span>评论:</span>
+            <TextArea
+              className="textArea"
+              rows={4}
+              onChange={(e) => setText(e)}
+            ></TextArea>
+            <Button
+              size="mini"
+              color="primary"
+              onClick={() => {
+                submit();
+              }}
+            >
+              发表
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
