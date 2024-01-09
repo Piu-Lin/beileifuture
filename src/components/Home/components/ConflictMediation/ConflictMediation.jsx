@@ -291,10 +291,7 @@ export default class ConflictMediation extends Component {
         ],
       },
     ],
-    value: [],
-  };
-  setValue = (value) => {
-    this.setState({ value });
+    gridPeople: '',
   };
 
   fileList = (newFileList) => {
@@ -353,6 +350,7 @@ export default class ConflictMediation extends Component {
       content: e.content,
       type: e.type,
       picture: JSON.stringify(picture),
+      gridPeople: this.state.gridPeople[2].label,
     };
     fetch(
       "https://metagis.cc:20256/prod-api/governance/contradiction_adjust/openAdd",
@@ -387,7 +385,7 @@ export default class ConflictMediation extends Component {
     console.log(jsonData);
   };
   render() {
-    const { visible, options, value } = this.state;
+    const { visible, options, gridPeople } = this.state;
     return (
       <>
         <div className="index">
@@ -437,17 +435,18 @@ export default class ConflictMediation extends Component {
                   />
                 </Form.Item>
                 <Form.Item
-                  name="createBy"
+                  name="gridPeople"
                   label="处理人"
                   onClick={() => this.setVisible()}
                 >
                   <Cascader
                     options={options}
                     visible={visible}
-                    value={value}
-                    onConfirm={this.setValue}
+                    // value={value}
+                    // onConfirm={this.setValue}
                     onSelect={(val, extend) => {
-                      console.log('onSelect', val, extend.items)
+                      // console.log('onSelect',extend.items[2])
+                      this.setState({ gridPeople: extend.items })
                     }}
                     onClose={() => {
                       this.setVisible(false);

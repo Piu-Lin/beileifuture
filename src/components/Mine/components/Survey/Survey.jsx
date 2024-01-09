@@ -30,6 +30,7 @@ export default class Survey extends Component {
     wenjuanJson: {
       title: "",
     },
+    isHistory: false,
   };
   getdata = (flag) => {
     if(flag){
@@ -37,6 +38,7 @@ export default class Survey extends Component {
     }
     else{
       flag=0
+      this.setState({isHistory:true})
     }
     const username = JSON.parse(localStorage.getItem("user"));
     fetch(
@@ -168,7 +170,7 @@ export default class Survey extends Component {
         ) : (
           <div className="SurveyContext">
             {" "}
-            <DataFrom formId={this.state.formid}></DataFrom>
+            <DataFrom formId={this.state.formid} isHistory={this.state.isHistory}></DataFrom>
           </div>
         )}
       </div>

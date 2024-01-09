@@ -39,6 +39,7 @@ export default class App extends Component {
   }
   componentDidMount(){
    const url = window.location.search;
+   
    console.log(url)
    if(url){
       const params = url.split('=')[1]
