@@ -3,6 +3,7 @@ import "./index.less";
 import BackIcon from "../../icon/Back.png";
 import { NoticeBar, Space,Popup} from "antd-mobile";
 export default class Notification extends Component {
+  //返回上一级
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };

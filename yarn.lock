@@ -9846,6 +9846,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
+wc-waterfall@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmmirror.com/wc-waterfall/-/wc-waterfall-0.1.0.tgz"
+  integrity sha512-Ssn5EvR248JNfFX4qAfftUr0KeoGt5ZpHH+QzVJ9N3i/klX39wmOe1ISv9zYv+ibu+f1sswjr3XxlsPloXoAoQ==
+
 web-vitals@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmmirror.com/web-vitals/-/web-vitals-2.1.4.tgz"

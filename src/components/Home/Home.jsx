@@ -157,6 +157,19 @@ export default class Home extends Component {
               </div>
             </div>
             <div className="HomeNavCard">
+            <div
+                id="emergencyMessage"
+                onClick={() => {
+                  this.SetHomeState(1);
+                }}
+              >
+                <img
+                  id="emergencyIcon"
+                  src={emergencyIcon}
+                  alt="emergencyIcon"
+                />
+                <div id="emergencyContent">{this.state.emergency.content}</div>
+              </div>
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {

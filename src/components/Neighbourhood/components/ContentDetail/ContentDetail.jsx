@@ -26,7 +26,7 @@ export function ContentDetail(props) {
   useEffect(() => {
     console.log("组件根据依赖参数props更新调用");
     getcomment();
-  }, [props.value]);
+  }, [props]);
 
   const getcomment = () => {
     const { tableType } = props.value;
@@ -256,7 +256,7 @@ export function ContentDetail(props) {
                   {Itemlist.map((item, index) => {
                     return (
                       <>
-                        <div className="comment-list" key={index}>
+                        <div className="comment-list" key={item.commonContent+index}>
                           <div className="comment-headimg">
                             <img
                               src="https://ts1.cn.mm.bing.net/th/id/R-C.0df376ebe8b20d4c8a9811e4fa536028?rik=FH4U0fuzh0aR9g&riu=http%3a%2f%2fpic44.photophoto.cn%2f20170718%2f1155116378033877_b.jpg&ehk=TQ4obflO5%2fC8mjf7l0uUJGEJAiTHAkBQw64iawawGEE%3d&risl=&pid=ImgRaw&r=0"

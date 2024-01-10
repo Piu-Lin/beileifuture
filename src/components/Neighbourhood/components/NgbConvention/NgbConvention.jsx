@@ -37,22 +37,12 @@ export default class Deliberative extends Component {
       TrItemDetail: "",
     },
   };
-  chanegDetailed = (id) => {
-    // fetch("https://metagis.cc:20256/prod-api/neighbourhood/convention/" + id)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     const value = data.data;
-    //     this.setState({
-    //       details: {
-    //         content: value.conventionContent ? value.conventionContent : "",
-    //         title: "",
-    //         date: value.createTime,
-    //         tableType: 2,
-    //         id,
-    //       },
-    //     });
-    //     console.log(data);
-    //   });
+  chanegDetailed = (item) => {
+    this.setState({card:{
+      TrItemTitle: item.title,
+      // TrItemTime: item.createTime,
+      TrItemDetail: item.conventionContent,
+    }})
     this.setState({
       isDetailed: !this.state.isDetailed,
     });
@@ -65,7 +55,7 @@ export default class Deliberative extends Component {
   init = () => {
     fetch("https://metagis.cc:20256/prod-api/neighbourhood/convention/list")
       .then((response) => response.json())
-      .then((data) => this.setState({ Meeting_Information: data.rows }))
+      .then((data) => this.setState({ DeliberativeList: data.rows }))
       .catch((error) => console.log(error));
   };
   componentDidMount() {
@@ -100,7 +90,7 @@ export default class Deliberative extends Component {
                   <div className="TrBox">
                     {DeliberativeList.map((item, i) => {
                       return (
-                        <div className="TrItemBox" key={i} onClick={()=>{this.chanegDetailed()}}>
+                        <div className="TrItemBox" key={i} onClick={()=>{this.chanegDetailed(item)}}>
                           <div className="TrItemTitle">{item.title}</div>
                           <div className="TrItemBottomLine">
                             <div className="TrItemTime">{item.subtitle}</div>

@@ -25,7 +25,13 @@ export default class NgbActivity extends Component {
       },
     ],
     isDetailed: false,
-    details: {},
+    details: {
+      content: '',
+      title: '',
+      date: '',
+      tableType:0,
+      id:0,
+    },
   };
   chanegDetailed = (id) => {
     fetch("https://metagis.cc:20256/prod-api/neighbourhood/activity/" + id)
@@ -88,7 +94,7 @@ export default class NgbActivity extends Component {
                   return (
                     <>
                       <div
-                        className="item"
+                        className="Ngitem"
                         key={i}
                         onClick={() => this.chanegDetailed(element.id)}
                       >
@@ -102,6 +108,8 @@ export default class NgbActivity extends Component {
                           />
                         </div>
                         <div>
+                        <div className="fire"></div>
+
                           <span className="title">{element.trainPlace}</span>
                           <span className="content">
                             {element.trainContent}
