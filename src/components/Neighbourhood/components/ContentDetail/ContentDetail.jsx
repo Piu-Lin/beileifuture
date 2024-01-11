@@ -113,6 +113,7 @@ export function ContentDetail(props) {
             content: "提交成功",
           });
           getcomment()
+          
         } else {
           Toast.show({
             icon: "fail",
@@ -126,7 +127,6 @@ export function ContentDetail(props) {
           content: "请检查网络",
         });
       });
-    console.log(formdata);
   }
 
   const postCommit = () => {
@@ -139,6 +139,7 @@ export function ContentDetail(props) {
       tableType: tableType,
       commonContent: text,
     };
+
     fetch(
       "https://metagis.cc:20256/prod-api/neighbourhood/comment",
       {
@@ -157,6 +158,8 @@ export function ContentDetail(props) {
             content: "提交成功",
           });
           getcomment()
+          changePop()
+
         } else {
           Toast.show({
             icon: "fail",
@@ -170,7 +173,8 @@ export function ContentDetail(props) {
           content: "请检查网络",
         });
       });
-    console.log(formdata);
+      setText('')
+
   };
 
   const { content, title, date } = props.value;
@@ -237,6 +241,7 @@ export function ContentDetail(props) {
                     className="textarea"
                     autoFocus={true}
                     rows={3}
+                    value={text}
                     onChange={(e) => setText(e)}
                   />
                   <Button

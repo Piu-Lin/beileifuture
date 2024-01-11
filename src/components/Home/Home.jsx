@@ -74,6 +74,19 @@ export default class Home extends Component {
   SetHomeState = (tobe) => {
     this.setState({ HomeState: tobe });
   };
+  init = () => {
+    fetch(
+      "https://metagis.cc:20256/prod-api/governance/information_bulletin/openList"
+    )
+      .then((response) => response.json())
+      .then((data) => this.setState({ emergency: {
+        content:data.rows[0].content
+      }}))
+      .catch((error) => console.log(error));
+  };
+  componentDidMount() {
+    this.init();
+  }
   renderContent() {
     switch (this.state.HomeState) {
       case 0: //首页导航

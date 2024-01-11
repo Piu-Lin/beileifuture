@@ -24,6 +24,7 @@ import Nglitang from "./img/文化礼堂.png";
 import Notification from "./components/Notification/Notification";
 import NgbConvention from "./components/NgbConvention/NgbConvention";
 import NgbActivity from "./components/NgbActivity/NgbActivity";
+import NgbWenhua from "./components/NgbWenhua/NgbWenhua";
 import { ContentDetail } from "./components/ContentDetail/ContentDetail";
 import { ContentDetail2 } from "./components/ContentDetail2/ContentDetail2";
 
@@ -46,52 +47,55 @@ export default class Neighbourhood extends Component {
       },
       {
         title: "文化礼堂",
-        content: "2011年，初任村党支部书记的陈加斌着手建设倍磊四村文化礼堂，将村史民情、人文故事、精神传承融入其中，讲述着倍磊村商贸历史、义乌兵文化、非物质文化遗产及新农村建设的成就，丰富滋润了村民的精神世界。在他的不懈努力下，倍磊四村文化礼堂成为全市第一个三星级文化礼堂。在陈加斌的带领下，倍磊村迈开了古建筑保护开发利用坚实的一步，倍磊成为了佛堂镇文化输出的重要窗口之一。",
+        content:
+          "2011年，初任村党支部书记的陈加斌着手建设倍磊四村文化礼堂，将村史民情、人文故事、精神传承融入其中，讲述着倍磊村商贸历史、义乌兵文化、非物质文化遗产及新农村建设的成就，丰富滋润了村民的精神世界。在他的不懈努力下，倍磊四村文化礼堂成为全市第一个三星级文化礼堂。在陈加斌的带领下，倍磊村迈开了古建筑保护开发利用坚实的一步，倍磊成为了佛堂镇文化输出的重要窗口之一。",
         imglist: [
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/文化礼堂/1.jpg"
+            url: "https://metagis.cc:20238/beilei/邻里文化/文化礼堂/1.jpg",
           },
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/文化礼堂/2.jpg"
+            url: "https://metagis.cc:20238/beilei/邻里文化/文化礼堂/2.jpg",
           },
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/文化礼堂/3.jpg"
-          }
+            url: "https://metagis.cc:20238/beilei/邻里文化/文化礼堂/3.jpg",
+          },
         ],
       },
       {
         title: "文化习俗",
-        content: "迎龙灯是义乌乡村正月里最盛大最具人气的活动之一，义乌西南倍磊街的龙灯以历史悠久数量众多而闻名，可谓是名副其实的龙灯之乡。倍磊街曾有大大小小的龙灯20多条，灯名也是五花八门，有锦城大灯头、小灯头、仰天龙、张肉桶、魁星灯、龙曲灯、泥龙灯、荷花灯、盐架灯、水阁龙、七十五板龙、五惇堂龙，还有后杭红笼灯、田沿青笼灯等等。迎灯的时间特别长，从年初九开始，一直到正月廿二，还有清明灯。倍磊龙灯有长有短，长的有上千桥，短的只有几十桥。板灯中最长的属锦城大灯头。二十世纪六十年代“破四旧”运动中，倍磊街的灯头大多被毁。直到八十年代中期，富裕起来的村民再度拾起那代表华夏图腾的龙之精魂，村里的龙灯又开始舞动起来。\n在明代剿灭东南沿海倭寇的战争中，俞大猷与戚继光并列，一直为人称道。就某种程度而言，俞大猷还在戚继光之上。在当年抗击倭寇的东南沿海一带，“俞龙戚虎，杀贼如土”的民谣一直传诵至今。，农历五月廿二日是俞大官的诞辰，村里每年都举行隆重的庆典。届时，俞大官塑像前陈设了长条形供桌，桌上置香案，红烛高照，线香缭绕，摆满了鸡蛋、索面、美味佳肴、时鲜水果，最富特色的是一对交颈鸳鸯。鸳鸯寓意夫妻恩爱，生活美满，引得大家闺秀、新婚少妇纷纷前来叩拜祈福。\n 撞铜锣是朝拜俞大官特有的民俗仪式。街心亭的南面放置了一座铜锣架，架的两端各挂一面铜锣，敲铜锣者站在中间，手持一个锣槌，左锣敲一槌，右锣敲一槌，民间称:“撞铜锣”。倍磊古村铜锣形，相传铜锣撞得越响，家族越兴旺。为敦亲睦族，共振家声，就有了撞铜锣的习俗。",
+        content:
+          "迎龙灯是义乌乡村正月里最盛大最具人气的活动之一，义乌西南倍磊街的龙灯以历史悠久数量众多而闻名，可谓是名副其实的龙灯之乡。倍磊街曾有大大小小的龙灯20多条，灯名也是五花八门，有锦城大灯头、小灯头、仰天龙、张肉桶、魁星灯、龙曲灯、泥龙灯、荷花灯、盐架灯、水阁龙、七十五板龙、五惇堂龙，还有后杭红笼灯、田沿青笼灯等等。迎灯的时间特别长，从年初九开始，一直到正月廿二，还有清明灯。倍磊龙灯有长有短，长的有上千桥，短的只有几十桥。板灯中最长的属锦城大灯头。二十世纪六十年代“破四旧”运动中，倍磊街的灯头大多被毁。直到八十年代中期，富裕起来的村民再度拾起那代表华夏图腾的龙之精魂，村里的龙灯又开始舞动起来。\n在明代剿灭东南沿海倭寇的战争中，俞大猷与戚继光并列，一直为人称道。就某种程度而言，俞大猷还在戚继光之上。在当年抗击倭寇的东南沿海一带，“俞龙戚虎，杀贼如土”的民谣一直传诵至今。，农历五月廿二日是俞大官的诞辰，村里每年都举行隆重的庆典。届时，俞大官塑像前陈设了长条形供桌，桌上置香案，红烛高照，线香缭绕，摆满了鸡蛋、索面、美味佳肴、时鲜水果，最富特色的是一对交颈鸳鸯。鸳鸯寓意夫妻恩爱，生活美满，引得大家闺秀、新婚少妇纷纷前来叩拜祈福。\n 撞铜锣是朝拜俞大官特有的民俗仪式。街心亭的南面放置了一座铜锣架，架的两端各挂一面铜锣，敲铜锣者站在中间，手持一个锣槌，左锣敲一槌，右锣敲一槌，民间称:“撞铜锣”。倍磊古村铜锣形，相传铜锣撞得越响，家族越兴旺。为敦亲睦族，共振家声，就有了撞铜锣的习俗。",
         imglist: [
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/文化习俗/迎龙灯.png"
+            url: "https://metagis.cc:20238/beilei/邻里文化/文化习俗/迎龙灯.png",
           },
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/文化习俗/撞铜锣.png"
-          }
+            url: "https://metagis.cc:20238/beilei/邻里文化/文化习俗/撞铜锣.png",
+          },
         ],
       },
       {
         title: "义乌兵文化",
-        content: "倍磊古村落历史悠久，名人辈出，古迹众多，民风淳朴，是义乌首个省级历史文化名村。“义乌兵”一直是倍磊人的骄傲，据清嘉庆《义乌县志》和《倍磊陈氏宗谱》记载，倍磊村当时被戚继光征兵北上的青壮年有803人，其中“远”字辈613人、“椿”字辈123人、“炎”字辈67人。",
+        content:
+          "倍磊古村落历史悠久，名人辈出，古迹众多，民风淳朴，是义乌首个省级历史文化名村。“义乌兵”一直是倍磊人的骄傲，据清嘉庆《义乌县志》和《倍磊陈氏宗谱》记载，倍磊村当时被戚继光征兵北上的青壮年有803人，其中“远”字辈613人、“椿”字辈123人、“炎”字辈67人。",
         imglist: [
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/义乌兵文化/图片.png"
-          }
+            url: "https://metagis.cc:20238/beilei/邻里文化/义乌兵文化/图片.png",
+          },
         ],
       },
       {
         title: "十七祠堂",
         imglist: [
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/十七祠堂/4d5b13806bf36f13414281dbe06010681671416655563.png"
+            url: "https://metagis.cc:20238/beilei/邻里文化/十七祠堂/4d5b13806bf36f13414281dbe06010681671416655563.png",
           },
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/十七祠堂/10179918_125147.png"
+            url: "https://metagis.cc:20238/beilei/邻里文化/十七祠堂/10179918_125147.png",
           },
           {
-            url:"https://metagis.cc:20238/beilei/邻里文化/十七祠堂/图片3"
-          }
+            url: "https://metagis.cc:20238/beilei/邻里文化/十七祠堂/图片3",
+          },
         ],
       },
     ],
@@ -107,18 +111,31 @@ export default class Neighbourhood extends Component {
   SetHomeState = (tobe) => {
     this.setState({ HomeState: tobe });
   };
-  setdetails2 = (id)=>{
-    const list  = this.state.detailslist
-    this.setState({details2:list[id]})
+  setdetails2 = (id) => {
+    const list = this.state.detailslist;
+    this.setState({ details2: list[id] });
 
-    console.log(list[id])
-  }
+    console.log(list[id]);
+  };
   init = () => {
     fetch("https://metagis.cc:20256/prod-api/neighbourhood/culture/list")
       .then((response) => response.json())
       .then((data) => this.setState({ wenhualist: data.rows }))
       .catch((error) => console.log(error));
+    fetch(
+      "https://metagis.cc:20256/prod-api/neighbourhood/communityAnnouncement/list"
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          emergency: {
+            content: data.rows[0].announcementTitle,
+          },
+        })
+      )
+      .catch((error) => console.log(error));
   };
+
   componentDidMount() {
     this.init();
   }
@@ -155,11 +172,13 @@ export default class Neighbourhood extends Component {
               alt="hero"
             />
             <div style={{ top: "-5vh" }} className="HomeNavCard">
-              <div id="emergencyMessage2">
+              <div
+                id="emergencyMessage2"
+                onClick={() => {
+                  this.SetHomeState(1);
+                }}
+              >
                 <img
-                  onClick={() => {
-                    this.SetHomeState(1);
-                  }}
                   id="emergencyIcon"
                   src={emergencyIcon}
                   alt="emergencyIcon"
@@ -202,9 +221,8 @@ export default class Neighbourhood extends Component {
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
-                    this.setdetails2(0)
+                    this.setdetails2(0);
                     this.SetHomeState(11);
-
                   }}
                   className="homeSubCardItem"
                 >
@@ -213,7 +231,7 @@ export default class Neighbourhood extends Component {
                 </div>
                 <div
                   onClick={() => {
-                    this.SetHomeState(11);
+                    this.SetHomeState(12);
                   }}
                   className="homeSubCardItem"
                 >
@@ -229,10 +247,8 @@ export default class Neighbourhood extends Component {
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
-                    this.setdetails2(4)
+                    this.setdetails2(4);
                     this.SetHomeState(11);
-
-                    
                   }}
                   className="homeSubCardItem"
                 >
@@ -241,10 +257,8 @@ export default class Neighbourhood extends Component {
                 </div>
                 <div
                   onClick={() => {
-                    this.setdetails2(3)
+                    this.setdetails2(3);
                     this.SetHomeState(11);
-
-                    
                   }}
                   className="homeSubCardItem"
                 >
@@ -255,10 +269,8 @@ export default class Neighbourhood extends Component {
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
-                    this.setdetails2(2)
+                    this.setdetails2(2);
                     this.SetHomeState(11);
-
-                    
                   }}
                   className="homeSubCardItem"
                 >
@@ -267,10 +279,8 @@ export default class Neighbourhood extends Component {
                 </div>
                 <div
                   onClick={() => {
-                    this.setdetails2(1)
+                    this.setdetails2(1);
                     this.SetHomeState(11);
-
-                    
                   }}
                   className="homeSubCardItem"
                 >
@@ -298,6 +308,8 @@ export default class Neighbourhood extends Component {
             value={this.state.details2}
           />
         );
+      case 12:
+        return <NgbWenhua SetHomeState={this.SetHomeState} />;
       default:
         return <></>;
     }

@@ -16,3 +16,73 @@
       margin: auto;   
     }
   }
+  .toolbar {
+    display: flex;
+    flex-direction: row-reverse;
+    .toolbar-item {
+      margin: 5px;
+      span {
+        display: block;
+        font-size: 10px;
+      }
+      .cardicon {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  
+  .Noitem {
+    width: 98%;
+    display: flex;
+    margin: 10px 0;
+    background: #ebeaea;
+
+    padding: 5px;
+    border-radius: 5px;
+    
+  
+    .fire {
+      position: absolute;
+      width: 32px;
+      height: 72px;
+      // background-image: url("./img/hot.png");
+      background-size: cover;
+      transform: scale(0.5);
+      right: 0;
+      top: -1vh;
+    }
+    div{
+      position: relative;
+    }
+    // div:nth-child(1) {
+    //   align-self: center;
+    //   width: 30%;
+    //   img {
+    //     border-radius: 3px;
+    //     width: 80%;
+    //   }
+    // }
+    div:nth-child(2) {
+      width: 100%;
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      span {
+        display: block;
+        margin-top: 3px;
+      }
+      .content {
+        height: 34px;
+        overflow: hidden; /* 隐藏溢出内容 */
+        text-overflow: ellipsis; /* 自动显示省略号 */
+        color: #666;
+  
+      }
+      .date {
+        text-align: end;
+      }
+    }
+  }
