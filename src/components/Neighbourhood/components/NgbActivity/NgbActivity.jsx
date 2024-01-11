@@ -10,18 +10,11 @@ export default class NgbActivity extends Component {
   state = {
     items: [
       {
-        url: "http://120.27.208.55:10001/prod-api//profile/upload/2023/09/20/41f683b9-c5e2-4f5f-8ee2-7a83738fd98e.jpg",
-        name: "慰问老人邻里活动",
+        url: "'",
+        name: "",
         content:
-          "倍磊村一直以来都是一个充满温情和凝聚力的社区，我们始终关心着每一位村民的幸福与健康啥的",
-        date: "2023年10月18日",
-      },
-      {
-        url: "http://120.27.208.55:10001/prod-api//profile/upload/2022/12/14/334807be-3221-4d8f-a402-01dd81eab4b1.jpg",
-        name: "阅读邻里活动",
-        content:
-          "在这个信息爆炸的时代，我们常常被各种asdsa sdasd adasdsa撒旦  ",
-        date: "2023年10月18日",
+          "",
+        date: "",
       },
     ],
     isDetailed: false,
@@ -29,7 +22,7 @@ export default class NgbActivity extends Component {
       content: '',
       title: '',
       date: '',
-      tableType:0,
+      tableType:3,
       id:0,
     },
   };

@@ -26,7 +26,7 @@ export function ContentDetail(props) {
   useEffect(() => {
     console.log("组件根据依赖参数props更新调用");
     getcomment();
-  }, [props]);
+  }, []);
 
   const getcomment = () => {
     const { tableType } = props.value;
