@@ -22,7 +22,7 @@ export default class NgbWenhua extends Component {
       content: '',
       title: '',
       date: '',
-      tableType:0,
+      tableType:1,
       id:0,
     },
   };

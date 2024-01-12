@@ -27,6 +27,7 @@ import dongtai from "./icon/dongtai.png";
 import huodong from "./icon/huodong.png";
 import jiyi from "./icon/jiyi.png";
 import yinling from "./icon/yinling.png";
+import zixun  from './icon/zixun.png'
 
 import Survey from "../Mine/components/Survey/Survey"
 import Notification from "./components/Notification/Notification";
@@ -170,19 +171,20 @@ export default class Home extends Component {
               </div>
             </div>
             <div className="HomeNavCard">
-            <div
+            {/* <div
                 id="emergencyMessage"
                 onClick={() => {
                   this.SetHomeState(1);
                 }}
               >
                 <img
-                  id="emergencyIcon"
-                  src={emergencyIcon}
+                  // id="emergencyIcon"
+                  style={{width:"60px"}}
+                  src={zixun}
                   alt="emergencyIcon"
                 />
                 <div id="emergencyContent">{this.state.emergency.content}</div>
-              </div>
+              </div> */}
               <div className="homeSubCardLine">
                 <div
                   onClick={() => {
