@@ -36,6 +36,7 @@ export default class NgbWenhua extends Component {
             content: value.cultureContent,
             title: value.trainPlace,
             date: value.createTime,
+            image:value.image,
             tableType:4,
             id,
           },

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
-import { TextArea, Dialog, Button,Toast } from "antd-mobile";
+import { TextArea, Dialog, Button, Toast } from "antd-mobile";
 import { use } from "echarts";
 export function ContentDetail(props) {
   const [isPopMessage, setIsPopMessage] = useState(false);
@@ -51,16 +51,13 @@ export function ContentDetail(props) {
       commonContent: text,
       isSignature: 1,
     };
-    fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/collect",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formdata),
-      }
-    )
+    fetch("https://metagis.cc:20256/prod-api/neighbourhood/collect", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formdata),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.code === 200) {
@@ -68,7 +65,7 @@ export function ContentDetail(props) {
             icon: "success",
             content: "提交成功",
           });
-          getcomment()
+          getcomment();
         } else {
           Toast.show({
             icon: "fail",
@@ -83,7 +80,7 @@ export function ContentDetail(props) {
         });
       });
     console.log(formdata);
-  }
+  };
   const postqiandao = () => {
     const { tableType, id } = props.value;
     const user = JSON.parse(localStorage.getItem("user"));
@@ -95,16 +92,13 @@ export function ContentDetail(props) {
       commonContent: text,
       isSignature: 1,
     };
-    fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/signature",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formdata),
-      }
-    )
+    fetch("https://metagis.cc:20256/prod-api/neighbourhood/signature", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formdata),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.code === 200) {
@@ -112,8 +106,7 @@ export function ContentDetail(props) {
             icon: "success",
             content: "提交成功",
           });
-          getcomment()
-          
+          getcomment();
         } else {
           Toast.show({
             icon: "fail",
@@ -127,7 +120,7 @@ export function ContentDetail(props) {
           content: "请检查网络",
         });
       });
-  }
+  };
 
   const postCommit = () => {
     const { tableType, id } = props.value;
@@ -140,16 +133,13 @@ export function ContentDetail(props) {
       commonContent: text,
     };
 
-    fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/comment",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formdata),
-      }
-    )
+    fetch("https://metagis.cc:20256/prod-api/neighbourhood/comment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formdata),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.code === 200) {
@@ -157,9 +147,8 @@ export function ContentDetail(props) {
             icon: "success",
             content: "提交成功",
           });
-          getcomment()
-          changePop()
-
+          getcomment();
+          changePop();
         } else {
           Toast.show({
             icon: "fail",
@@ -173,11 +162,10 @@ export function ContentDetail(props) {
           content: "请检查网络",
         });
       });
-      setText('')
-
+    setText("");
   };
 
-  const { content, title, date } = props.value;
+  const { content, title, date, image } = props.value;
   return (
     <div>
       <div className="index">
@@ -196,6 +184,8 @@ export function ContentDetail(props) {
               <span>{date}</span>
             </div>
             <div className="indexContent">
+             
+              <img  style={{width:"90%"}} src={"https://metagis.cc:20256/prod-api/" + image} alt="" />
               <p>{content}</p>
             </div>
 
@@ -209,19 +199,13 @@ export function ContentDetail(props) {
                 </svg>
                 <span>点赞</span>
               </div>
-              <div
-                className="toolbar-item"
-                onClick={() => postShoucan()}
-              >
+              <div className="toolbar-item" onClick={() => postShoucan()}>
                 <svg className="cardicon" aria-hidden="true">
                   <use xlinkHref="#icon-shoucang"></use>
                 </svg>
                 <span>收藏</span>
               </div>
-              <div
-                className="toolbar-item"
-                onClick={() => postqiandao()}
-              >
+              <div className="toolbar-item" onClick={() => postqiandao()}>
                 <svg className="cardicon" aria-hidden="true">
                   <use xlinkHref="#icon-pinglun"></use>
                 </svg>
@@ -261,7 +245,10 @@ export function ContentDetail(props) {
                   {Itemlist.map((item, index) => {
                     return (
                       <>
-                        <div className="comment-list" key={item.commonContent+index}>
+                        <div
+                          className="comment-list"
+                          key={item.commonContent + index}
+                        >
                           <div className="comment-headimg">
                             <img
                               src="https://ts1.cn.mm.bing.net/th/id/R-C.0df376ebe8b20d4c8a9811e4fa536028?rik=FH4U0fuzh0aR9g&riu=http%3a%2f%2fpic44.photophoto.cn%2f20170718%2f1155116378033877_b.jpg&ehk=TQ4obflO5%2fC8mjf7l0uUJGEJAiTHAkBQw64iawawGEE%3d&risl=&pid=ImgRaw&r=0"

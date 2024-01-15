@@ -36,6 +36,7 @@ export default class NgbActivity extends Component {
             content: value.trainContent,
             title: value.trainPlace,
             date: value.createTime,
+            image:value.image,
             tableType:3,
             id,
           },
