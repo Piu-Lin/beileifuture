@@ -13,6 +13,8 @@ export default class Notification extends Component {
     visible:false,
     pop:""
   };
+
+  
   init = () => {
     fetch(
       "https://metagis.cc:20256/prod-api/governance/information_bulletin/openList"

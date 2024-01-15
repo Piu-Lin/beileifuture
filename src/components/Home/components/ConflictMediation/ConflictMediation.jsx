@@ -15,6 +15,8 @@ export default class ConflictMediation extends Component {
   state = {
     fileList: [],
     visible: false,
+
+    //倍磊数据
     options: [
       {
         label: "倍磊一村",

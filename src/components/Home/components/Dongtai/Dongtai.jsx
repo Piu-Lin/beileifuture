@@ -10,15 +10,13 @@ export default class NgbActivity extends Component {
     this.props.SetHomeState(0);
   };
   state = {
-    items: [
-
-    ],
+    items: [],
     isDetailed: false,
     details: {},
-    id:0,
+    id: 0,
   };
   chanegDetailed = (id) => {
-    this.setState({id})
+    this.setState({ id });
 
     this.setState({
       isDetailed: !this.state.isDetailed,
@@ -94,6 +92,7 @@ export default class NgbActivity extends Component {
   }
 }
 
+//详情组件
 export const QLOpenDeilt = (props) => {
   const [item, setItem] = useState({
     id: 1,
@@ -104,13 +103,13 @@ export const QLOpenDeilt = (props) => {
     title: "党建动态标题",
     delFlag: 0,
   });
-  //
-    useEffect(()=>{
-      fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/"+props.id)
-        .then((response) => response.json())
-        .then((data) => setItem(data.data))
-        .catch((error) => console.log(error));
-    },[props.id])
+  //初始化
+  useEffect(() => {
+    fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/" + props.id)
+      .then((response) => response.json())
+      .then((data) => setItem(data.data))
+      .catch((error) => console.log(error));
+  }, [props.id]);
 
   return (
     <div>
@@ -120,11 +119,13 @@ export const QLOpenDeilt = (props) => {
         }}
         title={item.title}
       >
-        {
-          <div>{item.content}</div>
-        }
-        <img style={{width: "100%"}} src={"https://metagis.cc:20256/prod-api/"+item.image} alt="图片" />
-        
+        {<div>{item.content}</div>}
+        <img
+          style={{ width: "100%" }}
+          src={"https://metagis.cc:20256/prod-api/" + item.image}
+          alt="图片"
+        />
+
         <div style={{ width: "100%", textAlign: "end", marginTop: "20px" }}>
           <span>{item.time}</span>
         </div>

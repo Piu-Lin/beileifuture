@@ -82,7 +82,7 @@ export default class Deliberative extends Component {
     );
   }
 }
-
+//详情组件
 export const QLOpenDeilt = (props) => {
   return (
     <div>

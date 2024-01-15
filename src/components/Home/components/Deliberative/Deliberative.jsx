@@ -3,22 +3,27 @@ import React, { Component, useState } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
 import { Card, TextArea, Button, Toast } from "antd-mobile";
+
+
+
 export default class Deliberative extends Component {
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };
   state = {
+    //详情
     isDetailed: false,
-
+    //选中
     isSelect: true,
     Meeting_Information: [],
-
+    //初始化值
     value: {
       theme: "清洁村庄计划评估",
       participant: "林二十一、韦二十二",
       meetingTime: "2023-11-25",
     },
   };
+  //详情切换
   chanegDetailed = () => {
     this.setState({
       isDetailed: !this.state.isDetailed,
@@ -37,7 +42,7 @@ export default class Deliberative extends Component {
       this.getvalue(0);
     }
   };
-
+  //获取接口数据
   getvalue = (flag) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -128,7 +133,8 @@ export default class Deliberative extends Component {
   }
 }
 
-//详细
+
+//详细组件
 export const QLOpenDeilt = (props) => {
   const [text, setText] = useState("");
   const submit = () => {

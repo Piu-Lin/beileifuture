@@ -50,31 +50,18 @@ export default class Home extends Component {
 
 
   state = {
-    /** 乡村资讯 */
-    villageInformation: [
-      {
-        /** 小图标 */
-        miniCon: "",
-        /** 标题 */
-        informationTitle: "",
-        /** 发布时间 */
-        pushTime: "",
-        /** 详情栏目 */
-        detail: {
-          /** 内容文字 */
-          activeWord: "",
-        },
-      },
-    ],
+    //首页资讯
     emergency: {
       pushTime: "2023年10月18日",
       content: "吴佳明检查发现严重隐患,请及时关注!",
     },
+    //页面导航编号
     HomeState: 0,
   };
   SetHomeState = (tobe) => {
     this.setState({ HomeState: tobe });
   };
+  //初始化请求
   init = () => {
     fetch(
       "https://metagis.cc:20256/prod-api/governance/information_bulletin/openList"

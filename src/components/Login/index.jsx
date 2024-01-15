@@ -21,6 +21,7 @@ const Login = (props) => {
         }
         console.log(JSON.stringify(data.rows[0]))
         localStorage.setItem("user", JSON.stringify(data.rows[0]));
+        //跳转到首页
         props.login()
         Toast.show({
           icon: "success",
