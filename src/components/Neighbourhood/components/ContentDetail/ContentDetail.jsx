@@ -7,6 +7,7 @@ export function ContentDetail(props) {
   const [isPopMessage, setIsPopMessage] = useState(false);
   const [Itemlist, setItemlist] = useState([]);
   const [text, setText] = useState("");
+  const [urlarry, setUrlarry] = useState([]);
 
   const handleClick = () => {
     props.click(0);
@@ -184,9 +185,20 @@ export function ContentDetail(props) {
               <span>{date}</span>
             </div>
             <div className="indexContent">
-             
-              <img  style={{width:"90%"}} src={"https://metagis.cc:20256/prod-api/" + image} alt="" />
-              <p>{content}</p>
+              {image&&image.map((item) => {
+                return (
+                  <>
+                    <img
+                      style={{ width: "90%",margin:'10px 0' }}
+                      src={"https://metagis.cc:20256/prod-api/" + item}
+                      alt=""
+                    />
+                  </>
+                );
+              })}
+              <div style={{width:'90%'}}>
+              {content}
+              </div>
             </div>
 
             <div className="toolbar">

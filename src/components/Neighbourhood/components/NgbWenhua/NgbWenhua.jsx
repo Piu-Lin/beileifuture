@@ -19,11 +19,11 @@ export default class NgbWenhua extends Component {
     ],
     isDetailed: false,
     details: {
-      content: '',
-      title: '',
-      date: '',
-      tableType:4,
-      id:0,
+      content: "",
+      title: "",
+      date: "",
+      tableType: 4,
+      id: 0,
     },
   };
   chanegDetailed = (id) => {
@@ -31,13 +31,15 @@ export default class NgbWenhua extends Component {
       .then((response) => response.json())
       .then((data) => {
         const value = data.data;
+        let imgarry = value.image.split(",");
+
         this.setState({
           details: {
             content: value.cultureContent,
             title: value.trainPlace,
             date: value.createTime,
-            image:value.image,
-            tableType:4,
+            image: imgarry,
+            tableType: 4,
             id,
           },
         });
@@ -52,12 +54,30 @@ export default class NgbWenhua extends Component {
   init = () => {
     fetch("https://metagis.cc:20256/prod-api/neighbourhood/culture/list")
       .then((response) => response.json())
-      .then((data) => this.setState({ items: data.rows }))
+      .then((data) => {
+        
+        let newlist = []
+        data.rows.map((item)=>{
+          newlist.push({
+            url: item.image.split(","),
+            cultureName: item.cultureName,
+            cultureContent: item.cultureContent,
+            createTime: item.createTime,
+            id: item.id,
+            remark:item.remark
+          })
+        })
+        console.log(newlist)
+        this.setState({
+          items: newlist
+        });
+      })
       .catch((error) => console.log(error));
   };
   componentDidMount() {
     this.init();
   }
+
   render() {
     const { isDetailed } = this.state;
     return (
@@ -88,7 +108,7 @@ export default class NgbWenhua extends Component {
                   return (
                     <>
                       <div
-                        className="Ngitem"
+                        className={i === 0 ? "Ngitem" : "grayItem"}
                         key={i}
                         onClick={() => this.chanegDetailed(element.id)}
                       >
@@ -96,21 +116,19 @@ export default class NgbWenhua extends Component {
                           <img
                             src={
                               "https://metagis.cc:20256/prod-api/" +
-                              element.image
+                                element.url[0]
                             }
                             alt="图片"
                           />
                         </div>
                         <div>
-                        {/* <div className="fire"></div> */}
+                          {/* <div className="fire"></div> */}
 
-                        {
-                            i===0?<div  className="fire"></div>:<></>
-                          }
-                          <span className="title">{element.cultureContent}</span>
-                          <span className="content">
-                            {element.remark}
+                          {i === 0 ? <div className="fire"></div> : <></>}
+                          <span className="title">
+                            {element.cultureContent}
                           </span>
+                          <span className="content">{element.remark}</span>
                           <span className="date">
                             {element.createTime &&
                               element.createTime.split(" ")[0]}
