@@ -246,85 +246,47 @@ export default class Neighbourhood extends Component {
                 </div>
               </div>
             </div>
-            <div className="HomeNavCard2 ">
-              {/* <img src={bg2024} alt="" style={{ width: "100%" }} /> */}
-              <div className="homeSubCardLine">
-                <div
-                  onClick={() => {
-                    this.setdetails2(4);
-                    this.SetHomeState(11);
-                  }}
-                  className="homeSubCardItem2"
-                >
-                  <img
-                    src={Ng17}
-                    alt="InformationBulletins"
-                    style={{ width: "42vw" }}
-                  />
-                  <div className="homeSubCardContentE">十七祠堂</div>
+            <div className="nghoodWaterWall">
+                <div className="Wallitem"   onClick={() => {
+                  this.SetHomeState(11);
+                  this.setdetails2(0)
+                }}>
+                  <img src={Ng18} alt="" />
+                  <span className="WallitemTitle">十八进士</span>
                 </div>
-                <div
-                  onClick={() => {
-                    this.setdetails2(3);
-                    this.SetHomeState(11);
-                  }}
-                  className="homeSubCardItem2"
-                >
-                  <img
-                    src={Ngyiwu}
-                    alt="InformationBulletins"
-                    style={{ width: "42vw" }}
-                  />
-                  <div className="homeSubCardContentE">义乌兵文化</div>
-                </div>
-              </div>
+                <div className="Wallitem"   onClick={() => {
+                  this.SetHomeState(11);
+                  this.setdetails2(4)
 
-              <div className="homeSubCardLine">
-                <div
-                  onClick={() => {
-                    this.setdetails2(2);
-                    this.SetHomeState(11);
-                  }}
-                  className="homeSubCardItem2"
-                >
-                  <img
-                    src={Ngxisu}
-                    alt="InformationBulletins"
-                    style={{ width: "42vw" }}
-                  />
-                  <div className="homeSubCardContentE">文化习俗</div>
+                }}>
+                  <img src={Ng17} alt="" />
+                  <span className="WallitemTitle">十七祠堂</span>
+
                 </div>
-                <div
-                  onClick={() => {
-                    this.setdetails2(1);
-                    this.SetHomeState(11);
-                  }}
-                  className="homeSubCardItem2"
-                >
-                  <img
-                    src={Nglitang}
-                    alt="InformationBulletins"
-                    style={{ width: "42vw" }}
-                  />
-                  <div className="homeSubCardContentE">文化礼堂</div>
+                <div className="Wallitem"   onClick={() => {
+                  this.SetHomeState(11);
+                  this.setdetails2(3)
+
+                }}>
+                  <img src={Ngyiwu} alt="" />
+                  <span className="WallitemTitle">义乌兵文化</span>
+
                 </div>
-              </div>
-              <div className="homeSubCardLine">
-              <div
-                  onClick={() => {
-                    this.setdetails2(0);
-                    this.SetHomeState(11);
-                  }}
-                  className="homeSubCardItem2"
-                >
-                  <img
-                    src={Ng18}
-                    alt="InformationBulletins"
-                    style={{ width: "42vw" }}
-                  />
-                  <div className="homeSubCardContentE">十八进士</div>
+                <div className="Wallitem"   onClick={() => {
+                  this.SetHomeState(11);
+                  this.setdetails2(2)
+
+                }}>
+                  <img src={Ngxisu} alt="" />
+                  <span className="WallitemTitle">文化习俗</span>
                 </div>
-              </div>
+                <div className="Wallitem"   onClick={() => {
+                  this.SetHomeState(11);
+                  this.setdetails2(1)
+                }}>
+                  <img src={Nglitang} alt="" />
+                  <span className="WallitemTitle">文化礼堂</span>
+                </div>
             </div>
           </div>
         );

@@ -104,6 +104,9 @@ export default class NgbWenhua extends Component {
                         <div>
                         {/* <div className="fire"></div> */}
 
+                        {
+                            i===0?<div  className="fire"></div>:<></>
+                          }
                           <span className="title">{element.cultureContent}</span>
                           <span className="content">
                             {element.remark}

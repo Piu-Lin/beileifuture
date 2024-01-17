@@ -3,6 +3,7 @@
   height: 92vh;
   background-color: #f9f9f9;
   overflow-y: auto;
+  position: relative;
   #hero {
     position: relative;
     width: 100%;
@@ -96,7 +97,6 @@
           margin-top: 10vh;
           margin-left: 2vw;
           font-size: 0.9rem;
-
         }
         .homeSubCardContent {
           position: absolute;
@@ -212,7 +212,6 @@
           margin-top: 12vh;
           margin-left: 2vw;
           font-size: 1rem;
-
         }
         .homeSubCardContent {
           position: absolute;
@@ -235,6 +234,33 @@
       .homeSubCardItemReplenish {
         border-radius: 8px;
       }
+    }
+  }
+}
+
+.nghoodWaterWall {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  left: 8vw;
+  top: 62vh;
+  flex-wrap: wrap;
+  .Wallitem{
+    display: flex;
+    justify-content: center;
+    width: 42vw;
+    position: relative;
+    // padding: 1vw;
+    margin: 1vh 0;
+    img{
+      width: 38vw;
+    }
+    .WallitemTitle{
+      position: absolute;
+      bottom:2vh;
+      font-size: 1rem;
+      font-weight: 550;
+
     }
   }
 }

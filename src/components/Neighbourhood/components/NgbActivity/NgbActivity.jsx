@@ -102,7 +102,10 @@ export default class NgbActivity extends Component {
                           />
                         </div>
                         <div>
-                        <div className="fire"></div>
+                          {
+                            i===0?<div  className="fire"></div>:<></>
+                          }
+                        {/* <div  className="fire"></div> */}
 
                           <span className="title">{element.trainPlace}</span>
                           <span className="content">
