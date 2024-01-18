@@ -100,7 +100,10 @@ export const DataFrom = (props) => {
           Toast.show({
             icon: "success",
             content: "提交成功",
+
           });
+          //返回
+          props.switchSurvey()
         } else {
           Toast.show({
             icon: "fail",
@@ -118,6 +121,7 @@ export const DataFrom = (props) => {
       icon: "success",
       content: "提交成功",
     });
+    
   };
 
   const popQrShow = () => {

@@ -21,10 +21,7 @@ export default class Survey extends Component {
     formid:0,
     massage: [
       {
-        id: 1,
-        date: "2023年10月12日",
-        title: "关于村委会选举的问卷",
-        context: "你对村委会选举的参与度如何？请分享你的观点和想法。",
+     
       },
     ],
     wenjuanJson: {
@@ -35,14 +32,17 @@ export default class Survey extends Component {
   getdata = (flag) => {
     if(flag){
       flag=1
+      this.setState({isHistory:true})
+
     }
     else{
       flag=0
-      this.setState({isHistory:true})
+      this.setState({isHistory:false})
+
     }
     const username = JSON.parse(localStorage.getItem("user"));
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}&grid=4`
+      `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openList?userId=${username.id}&flag=${flag}&grid=${username.villageId}&sex=${username.sexId}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))
@@ -170,7 +170,7 @@ export default class Survey extends Component {
         ) : (
           <div className="SurveyContext">
             {" "}
-            <DataFrom formId={this.state.formid} isHistory={this.state.isHistory}></DataFrom>
+            <DataFrom formId={this.state.formid} isHistory={this.state.isHistory} black={this.switchSurvey}></DataFrom>
           </div>
         )}
       </div>
