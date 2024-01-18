@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./index.less";
 import BackIcon from "../../icon/Back.png";
 import { Card } from "antd-mobile";
+
+
+/* 党建活动*/
+
+
+
 export default class Deliberative extends Component {
   BackToHomeNav = () => {
     this.props.SetHomeState(0);

@@ -3,9 +3,11 @@ import "./index.less";
 import BackIcon from "../../icon/Back.png";
 import { Card } from "antd-mobile";
 
-// import { ContentDetail } from "../ContentDetail/ContentDetail";
+// import { ContentDetail } from "../ContentDetail/ContentDetail";、
 
+/* 党建动态*/
 export default class NgbActivity extends Component {
+  // 返回
   BackToHomeNav = () => {
     this.props.SetHomeState(0);
   };

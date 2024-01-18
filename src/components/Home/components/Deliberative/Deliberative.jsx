@@ -82,6 +82,7 @@ export default class Deliberative extends Component {
           <div
             style={{ width: "100%", display: isDetailed ? "none" : "block" }}
           >
+            {/* 导航栏 */}
             <div className="switchTag">
               <div>
                 <span
@@ -101,6 +102,7 @@ export default class Deliberative extends Component {
               </div>
             </div>
           </div>
+          {/*  列表*/}
           <div className="Archives">
             {isDetailed ? (
               <QLOpenDeilt value={value} />
