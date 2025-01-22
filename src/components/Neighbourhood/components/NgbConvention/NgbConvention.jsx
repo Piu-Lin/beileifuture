@@ -53,7 +53,7 @@ export default class Deliberative extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/convention/list")
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/convention/list")
       .then((response) => response.json())
       .then((data) => this.setState({ DeliberativeList: data.rows }))
       .catch((error) => console.log(error));
@@ -142,7 +142,7 @@ export const Detail = (props) => {
       isSignature: 1,
     };
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/collect",
+      "http://218.0.59.244:10009/prod-api/neighbourhood/collect",
       {
         method: "POST",
         headers: {
@@ -186,7 +186,7 @@ export const Detail = (props) => {
       isSignature: 1,
     };
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/signature",
+      "http://218.0.59.244:10009/prod-api/neighbourhood/signature",
       {
         method: "POST",
         headers: {
@@ -231,7 +231,7 @@ export const Detail = (props) => {
     };
 
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/comment",
+      "http://218.0.59.244:10009/prod-api/neighbourhood/comment",
       {
         method: "POST",
         headers: {
@@ -275,7 +275,7 @@ export const Detail = (props) => {
   };
   const getcomment = () => {
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/comment/list?tableType=2"
+      "http://218.0.59.244:10009/prod-api/neighbourhood/comment/list?tableType=2"
     )
       .then((response) => response.json())
       .then((data) => {

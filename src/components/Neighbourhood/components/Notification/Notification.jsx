@@ -27,7 +27,7 @@ export default class NgbWenhua extends Component {
     },
   };
   chanegDetailed = (id) => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/communityAnnouncement/" + id)
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/communityAnnouncement/" + id)
       .then((response) => response.json())
       .then((data) => {
         const value = data.data;
@@ -49,7 +49,7 @@ export default class NgbWenhua extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/communityAnnouncement/list")
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/communityAnnouncement/list")
       .then((response) => response.json())
       .then((data) => this.setState({ items: data.rows }))
       .catch((error) => console.log(error));
@@ -94,7 +94,7 @@ export default class NgbWenhua extends Component {
                         <div>
                           {/* <img
                             src={
-                              "https://metagis.cc:20256/prod-api/" +
+                              "http://218.0.59.244:10009/prod-api/" +
                               element.image
                             }
                             alt="图片"

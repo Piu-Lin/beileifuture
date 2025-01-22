@@ -32,7 +32,7 @@ export function ContentDetail(props) {
   const getcomment = () => {
     const { tableType } = props.value;
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/comment/list?tableType=" +
+      "http://218.0.59.244:10009/prod-api/neighbourhood/comment/list?tableType=" +
         tableType
     )
       .then((response) => response.json())
@@ -52,7 +52,7 @@ export function ContentDetail(props) {
       commonContent: text,
       isSignature: 1,
     };
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/collect", {
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/collect", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export function ContentDetail(props) {
       commonContent: text,
       isSignature: 1,
     };
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/signature", {
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/signature", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,7 +134,7 @@ export function ContentDetail(props) {
       commonContent: text,
     };
 
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/comment", {
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/comment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -190,7 +190,7 @@ export function ContentDetail(props) {
                   <>
                     <img
                       style={{ width: "90%",margin:'10px 0' }}
-                      src={"https://metagis.cc:20256/prod-api/" + item}
+                      src={"http://218.0.59.244:10009/prod-api/" + item}
                       alt=""
                     />
                   </>

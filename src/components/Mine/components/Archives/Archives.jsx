@@ -161,14 +161,17 @@ export default class Archives extends Component {
     })
   }
   init = () => {
-    const username = JSON.parse(localStorage.getItem('user'))
+    let username = JSON.parse(localStorage.getItem('user'))
+    if (!username){
+      username='张三'
+    }
     this.setState({username:username.name})
 
     fetch(
-        `https://metagis.cc:20256/prod-api/governance/health_record/openList?userId=${username.id}`
+        `http://218.0.59.244:10009/prod-api/governance/health_record/openList?userId=${username.id}`
     )
       .then((response) => response.json())
-      .then((data) => this.setState({ imei: data.rows[0] }))
+      // .then((data) => this.setState({ imei: data.rows[0] }))
       .catch((error) => console.log(error));
   };
   componentDidMount() {
@@ -217,8 +220,8 @@ export default class Archives extends Component {
                     </div>
                     <div className="cardContext">
                       <span>
-                        收缩压 {imei.sdp}mmHg<br />
-                        舒张压 {imei.dbp}mmHg
+                        收缩压 120:mmHg<br />
+                        舒张压 70:mmHg
                       </span>
                     </div>
                   </div>

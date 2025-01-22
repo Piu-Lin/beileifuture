@@ -47,7 +47,7 @@ export default class Deliberative extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
 
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/discussion_managementr/openList?userId=${user.id}&flag=${flag}`
+      `http://218.0.59.244:10009/prod-api/governance/discussion_managementr/openList?userId=${user.id}&flag=${flag}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ Meeting_Information: data.rows }))
@@ -155,7 +155,7 @@ export const QLOpenDeilt = (props) => {
       answer: text,
     };
     fetch(
-      "https://metagis.cc:20256/prod-api/governance/discussion_answer/openAdd",
+      "http://218.0.59.244:10009/prod-api/governance/discussion_answer/openAdd",
       {
         method: "POST",
         headers: {

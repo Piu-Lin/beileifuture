@@ -27,7 +27,7 @@ export default class QLOpen extends Component {
     }
 
     init = () => {
-        fetch("https://metagis.cc:20256/prod-api/governance/honest_open/openList")
+        fetch("http://218.0.59.244:10009/prod-api/governance/honest_open/openList")
           .then((response) => response.json())
           .then((data) => this.setState({ Village_Affairs_Information: data.rows }))
           .catch((error) => console.log(error));

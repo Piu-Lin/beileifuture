@@ -36,7 +36,7 @@ export default class NgbActivity extends Component {
 
 
   chanegDetailed = (id) => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/activity/" + id)
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/activity/" + id)
       .then((response) => response.json())
       .then((data) => {
         const value = data.data;
@@ -60,7 +60,7 @@ export default class NgbActivity extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/activity/list")
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/activity/list")
       .then((response) => response.json())
       .then((data) =>{
         let newlist = []
@@ -121,7 +121,7 @@ export default class NgbActivity extends Component {
                         <div>
                           <img
                             src={
-                              "https://metagis.cc:20256/prod-api/" +
+                              "http://218.0.59.244:10009/prod-api/" +
                              element.url[0]
                             }
                             alt="图片"

@@ -118,12 +118,12 @@ export default class Neighbourhood extends Component {
     console.log(list[id]);
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/culture/list")
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/culture/list")
       .then((response) => response.json())
       .then((data) => this.setState({ wenhualist: data.rows }))
       .catch((error) => console.log(error));
     fetch(
-      "https://metagis.cc:20256/prod-api/neighbourhood/communityAnnouncement/list"
+      "http://218.0.59.244:10009/prod-api/neighbourhood/communityAnnouncement/list"
     )
       .then((response) => response.json())
       .then((data) =>
@@ -140,7 +140,7 @@ export default class Neighbourhood extends Component {
     this.init();
   }
   getdetel = (id) => {
-    fetch("https://metagis.cc:20256/prod-api/neighbourhood/culture/" + id)
+    fetch("http://218.0.59.244:10009/prod-api/neighbourhood/culture/" + id)
       .then((response) => response.json())
       .then((data) => {
         const value = data.data;

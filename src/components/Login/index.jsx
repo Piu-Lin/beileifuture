@@ -5,10 +5,9 @@ import { Form, Input, Button, Toast } from "antd-mobile";
 const Login = (props) => {
   const onFinish = (e) => {
         // props.login()
-
     console.log(e);
     fetch(
-      `https://metagis.cc:20256/prod-api/basics/population/openList?idCard=${e.idCard}&name=${e.name}`
+      `http://218.0.59.244:10009/prod-api/basics/population/openList?idCard=${e.idCard}&name=${e.name}`
     )
       .then((response) => response.json())
       .then((data) => {

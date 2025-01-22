@@ -30,7 +30,7 @@ export default class Deliberative extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/service/memberActivity/list")
+    fetch("http://218.0.59.244:10009/prod-api/service/memberActivity/list")
       .then((response) => response.json())
       .then((data) => this.setState({ Meeting_Information: data.rows }))
       .catch((error) => console.log(error));

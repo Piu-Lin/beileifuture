@@ -16,6 +16,7 @@ export default class My  extends Component {
   }
   init = () => {
   const user = JSON.parse(localStorage.getItem('user'))
+  
     this.setState({
       name:user.name,
       phone:user.phone,

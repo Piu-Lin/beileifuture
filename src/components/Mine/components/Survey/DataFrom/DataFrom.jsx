@@ -85,7 +85,7 @@ export const DataFrom = (props) => {
     console.log(jsonData);
 
     fetch(
-      "https://metagis.cc:20256/prod-api/governance/questionnaire_answer/openAdd",
+      "http://218.0.59.244:10009/prod-api/governance/questionnaire_answer/openAdd",
       {
         method: "POST",
         headers: {
@@ -137,8 +137,8 @@ export const DataFrom = (props) => {
       const userid = JSON.parse(localStorage.getItem("user"));
 
       fetch(
-        `https://metagis.cc:20256/prod-api/governance/questionnaire_answer/openList?surveyId=${props.formId}&userId=${userid.id}`
-        // `https://metagis.cc:20256/prod-api/governance/questionnaire_answer/openList`
+        `http://218.0.59.244:10009/prod-api/governance/questionnaire_answer/openList?surveyId=${props.formId}&userId=${userid.id}`
+        // `http://218.0.59.244:10009/prod-api/governance/questionnaire_answer/openList`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -149,7 +149,7 @@ export const DataFrom = (props) => {
         .catch((error) => console.log(error));
     } else {
       fetch(
-        `https://metagis.cc:20256/prod-api/governance/questionnaire_survey/openGetInfo/${props.formId}`
+        `http://218.0.59.244:10009/prod-api/governance/questionnaire_survey/openGetInfo/${props.formId}`
       )
         .then((response) => response.json())
         .then((data) => {

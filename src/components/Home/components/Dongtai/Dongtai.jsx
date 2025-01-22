@@ -25,7 +25,7 @@ export default class NgbActivity extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/list")
+    fetch("http://218.0.59.244:10009/prod-api/service/memberDynamic/list")
       .then((response) => response.json())
       .then((data) => this.setState({ items: data.rows }))
       .catch((error) => console.log(error));
@@ -68,7 +68,7 @@ export default class NgbActivity extends Component {
                       <div>
                         <img
                           src={
-                            "https://metagis.cc:20256/prod-api/" + element.image
+                            "http://218.0.59.244:10009/prod-api/" + element.image
                           }
                           alt="图片"
                         />
@@ -107,7 +107,7 @@ export const QLOpenDeilt = (props) => {
   });
   //初始化
   useEffect(() => {
-    fetch("https://metagis.cc:20256/prod-api/service/memberDynamic/" + props.id)
+    fetch("http://218.0.59.244:10009/prod-api/service/memberDynamic/" + props.id)
       .then((response) => response.json())
       .then((data) => setItem(data.data))
       .catch((error) => console.log(error));
@@ -124,7 +124,7 @@ export const QLOpenDeilt = (props) => {
         {<div>{item.content}</div>}
         <img
           style={{ width: "100%" }}
-          src={"https://metagis.cc:20256/prod-api/" + item.image}
+          src={"http://218.0.59.244:10009/prod-api/" + item.image}
           alt="图片"
         />
 

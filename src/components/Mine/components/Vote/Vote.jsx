@@ -53,13 +53,13 @@ export default class Vote extends Component {
   init = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/online_voting/openList?userId=${user.id}&flag=0&grid=${user.villageId}`
+      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${user.id}&flag=0&grid=${user.villageId}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ massage: data.rows }))
       .catch((error) => console.log(error));
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/online_voting/openList?userId=${user.id}&flag=1&grid=${user.villageId}`
+      `http://218.0.59.244:10009/prod-api/governance/online_voting/openList?userId=${user.id}&flag=1&grid=${user.villageId}`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ historyMassage: data.rows }))
@@ -189,7 +189,7 @@ export const SurveyContext = (props) => {
     };
     console.log(jsonData);
     fetch(
-      "https://metagis.cc:20256/prod-api/governance/voting_answer/openAdd",
+      "http://218.0.59.244:10009/prod-api/governance/voting_answer/openAdd",
       {
         method: "POST",
         headers: {

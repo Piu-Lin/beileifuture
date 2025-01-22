@@ -52,7 +52,7 @@ export default class Home extends Component {
   state = {
     //首页资讯
     emergency: {
-      pushTime: "2023年10月18日",
+      pushTime: "2024年10月18日",
       content: "吴佳明检查发现严重隐患,请及时关注!",
     },
     //页面导航编号
@@ -64,7 +64,7 @@ export default class Home extends Component {
   //初始化请求
   init = () => {
     fetch(
-      "https://metagis.cc:20256/prod-api/governance/information_bulletin/openList"
+      "http://218.0.59.244:10009/prod-api/governance/information_bulletin/openList"
     )
       .then((response) => response.json())
       .then((data) => this.setState({ emergency: {
@@ -296,6 +296,14 @@ export default class Home extends Component {
                 >
                   <img className="homeSubCardBg" src={yinling} alt="RABList" />
                   <div className="homeSubCardLTitle">党建引领</div>
+                </div>
+                
+              </div>
+              <div className="homeSubCardLine">
+              <div onClick={()=>{
+                window.location.href="https://scenics.hua-jie.top/H5/index.html"
+              }}>
+                  <div className="homelvBox">旅游导览</div>
                 </div>
               </div>
             </div>

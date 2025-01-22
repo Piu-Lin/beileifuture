@@ -83,15 +83,15 @@ export default class ThreeAffairsOpen extends Component {
     });
   };
   init = () => {
-    fetch("https://metagis.cc:20256/prod-api/governance/money/openList")
+    fetch("http://218.0.59.244:10009/prod-api/governance/money/openList")
       .then((response) => response.json())
       .then((data) => this.setState({ shouzhi: data.rows }))
       .catch((error) => console.log(error));
-    fetch("https://metagis.cc:20256/prod-api/governance/party/openList")
+    fetch("http://218.0.59.244:10009/prod-api/governance/party/openList")
       .then((response) => response.json())
       .then((data) => this.setState({ dangFei: data.rows }))
       .catch((error) => console.log(error));
-    fetch("https://metagis.cc:20256/prod-api/governance/village/openList")
+    fetch("http://218.0.59.244:10009/prod-api/governance/village/openList")
       .then((response) => response.json())
       .then((data) => this.setState({ duixiang: data.rows }))
       .catch((error) => console.log(error));

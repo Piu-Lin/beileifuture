@@ -27,10 +27,13 @@ export default class Mine extends Component {
   }
   componentDidMount(){
     
-    const username = JSON.parse(localStorage.getItem('user'))
+    let username = JSON.parse(localStorage.getItem('user'))
+    if (!username){
+      username='张三'
+    }
     this.setState({username:username.name})
     fetch(
-      `https://metagis.cc:20256/prod-api/governance/integral_manage/openList?userId=${username.id}`
+      `http://218.0.59.244:10009/prod-api/governance/integral_manage/openList?userId=${username.id}`
     )
       .then((response) => response.json())
       .then((data) =>this.setState({ points: data.totalScore }))
@@ -68,7 +71,7 @@ export default class Mine extends Component {
       case 2: //我的
         return (<My MineState={this.MineState} />)
       case 3: //积分
-        return (<Points MineState={this.MineState} points={this.state.points} changePoint={this.changePoint} />)
+         return (<Points MineState={this.MineState} points={this.state.points} changePoint={this.changePoint} />)
       case 4: // 投票
         return (<Vote MineState={this.MineState} />)
       case 5: // 问卷调查

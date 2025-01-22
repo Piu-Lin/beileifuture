@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0f7a168a.css",
+    "main.js": "/static/js/main.74d87b69.js",
+    "static/js/787.8d81dffe.chunk.js": "/static/js/787.8d81dffe.chunk.js",
+    "static/media/5.png": "/static/media/5.fabd24c32ae308b661e5.png",
+    "static/media/headimg.png": "/static/media/headimg.d32722d126352567ecc4.png",
+    "static/media/4.png": "/static/media/4.e76da34eaa469cbe55cb.png",
+    "static/media/1.png": "/static/media/1.48e79871941b61b4d9b8.png",
+    "static/media/2.png": "/static/media/2.aa2011bf9acab70b4bcb.png",
+    "static/media/DeliberativeManagement.png": "/static/media/DeliberativeManagement.c23275cc4ff62a337c86.png",
+    "static/media/InformationBulletins.png": "/static/media/InformationBulletins.9cabc1b953d3c995680c.png",
+    "static/media/3.png": "/static/media/3.7eb2b2a2fde19ceb4e98.png",
+    "static/media/Hero.jpeg": "/static/media/Hero.b2889081b587ff5430c9.jpeg",
+    "static/media/2024海报.png": "/static/media/2024海报.ac660ea325b80a324514.png",
+    "static/media/6.jpg": "/static/media/6.aba73fd960102333b05a.jpg",
+    "static/media/文化习俗.png": "/static/media/文化习俗.6d5b0ca2dd173c37d578.png",
+    "static/media/十八进士.png": "/static/media/十八进士.938a862c45b0ae8cfd68.png",
+    "static/media/文化礼堂.png": "/static/media/文化礼堂.1d49f7a3bb09705c3cc9.png",
+    "static/media/义务兵文化.png": "/static/media/义务兵文化.f3b17a98358109117621.png",
+    "static/media/十七祠堂.png": "/static/media/十七祠堂.d6807ea4e8bb432ed82e.png",
+    "static/media/jiyi.png": "/static/media/jiyi.c6782864cc8343faa919.png",
+    "static/media/邻里文化.png": "/static/media/邻里文化.e36acef4be1f70f460e0.png",
+    "static/media/huodong.png": "/static/media/huodong.df05bd09eeb2b23d1c50.png",
+    "static/media/RABList.png": "/static/media/RABList.2fa73daee5ee21df2b01.png",
+    "static/media/dongtai.png": "/static/media/dongtai.fe284e506be8e364d9ba.png",
+    "static/media/Questionnaires.png": "/static/media/Questionnaires.1836c14e684dd250b4e9.png",
+    "static/media/yinling.png": "/static/media/yinling.570be2ff9930b86ce8c6.png",
+    "index.html": "/index.html",
+    "main.0f7a168a.css.map": "/static/css/main.0f7a168a.css.map",
+    "main.74d87b69.js.map": "/static/js/main.74d87b69.js.map",
+    "787.8d81dffe.chunk.js.map": "/static/js/787.8d81dffe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f7a168a.css",
+    "static/js/main.74d87b69.js"
+  ]
+}

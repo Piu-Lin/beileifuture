@@ -17,7 +17,7 @@ export default class Notification extends Component {
   
   init = () => {
     fetch(
-      "https://metagis.cc:20256/prod-api/governance/information_bulletin/openList"
+      "http://218.0.59.244:10009/prod-api/governance/information_bulletin/openList"
     )
       .then((response) => response.json())
       .then((data) => this.setState({ rows: data.rows }))
