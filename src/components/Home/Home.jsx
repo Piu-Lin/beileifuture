@@ -303,7 +303,7 @@ export default class Home extends Component {
               <div onClick={()=>{
                 window.location.href="https://scenics.hua-jie.top/H5/index.html"
               }}>
-                  <div className="homelvBox">旅游导览</div>
+                  <div className="homelvBox">倍磊村旅游导览</div>
                 </div>
               </div>
             </div>
